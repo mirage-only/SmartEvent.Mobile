@@ -66,16 +66,31 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="10.0.3" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Models\Requests\" />
-	  <Folder Include="Models\Responses\" />
-	  <Folder Include="Services\" />
-	  <Folder Include="ViewModels\" />
-	  <Folder Include="Views\" />
+	  <Folder Include="Core\DTOs\EventDTOs\Requests\" />
+	  <Folder Include="Domain\Models\" />
+	  <Folder Include="Domain\Interfaces\" />
+	  <Folder Include="Infrastructure\Storage\" />
+	  <Folder Include="Infrastructure\Geolocation\" />
+	  <Folder Include="Infrastructure\Qr\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Presentation\Views\EventsPage.xaml.cs">
+	    <DependentUpon>EventsPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Presentation\Views\EventsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
