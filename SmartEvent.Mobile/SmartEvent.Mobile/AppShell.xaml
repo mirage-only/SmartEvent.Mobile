@@ -7,17 +7,11 @@
     xmlns:views="clr-namespace:SmartEvent.Mobile.Presentation.Views"
     Title="SmartEvent.Mobile">
 
-    <TabBar>
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-    <ShellContent
-        Title="Events"
-        ContentTemplate="{DataTemplate views:EventsPage}" />
+    <TabBar Route="main">
+        <ShellContent
+            Title="Events"
+            Route="events"
+            ContentTemplate="{DataTemplate views:EventsPage}" />
     </TabBar>
-
-
-    
 
 </Shell>

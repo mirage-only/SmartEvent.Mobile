@@ -82,13 +82,31 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="AuthShell.xaml.cs">
+	    <DependentUpon>AuthShell.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Presentation\Views\EventsPage.xaml.cs">
 	    <DependentUpon>EventsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Presentation\Views\LoginPage.xaml.cs">
+	    <DependentUpon>LoginPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Presentation\Views\RegisterPage.xaml.cs">
+	    <DependentUpon>RegisterPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="AuthShell.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Presentation\Views\EventsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Presentation\Views\LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Presentation\Views\RegisterPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

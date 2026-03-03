@@ -19,10 +19,20 @@ namespace SmartEvent.Mobile
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
             builder.Services.AddHttpClient<IApiClient, ApiClient>();
+
             builder.Services.AddSingleton<IEventService, EventService>();
+            builder.Services.AddSingleton<IAuthService, AuthService>();
+
             builder.Services.AddSingleton<EventsViewModel>();
             builder.Services.AddSingleton<EventsPage>();
+
+            builder.Services.AddSingleton<RegisterViewModel>();
+            builder.Services.AddSingleton<RegisterPage>();
+
+            builder.Services.AddSingleton<LoginViewModel>(); 
+            builder.Services.AddSingleton<LoginPage>();
 
 
 #if DEBUG
