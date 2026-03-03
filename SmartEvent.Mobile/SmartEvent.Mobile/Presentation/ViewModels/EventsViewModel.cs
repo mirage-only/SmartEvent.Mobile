@@ -19,16 +19,15 @@ namespace SmartEvent.Mobile.Presentation.ViewModels
         public EventsViewModel(IEventService eventsService)
         {
             _eventsService = eventsService;
-            LoadEventsCommand = new AsyncRelayCommand(LoadEvents);
         }
 
-        public IAsyncRelayCommand LoadEventsCommand { get; }
-
+        [RelayCommand]
         private async Task LoadEvents()
         {
             var list = await _eventsService.GetAllEvents();
             Events = new ObservableCollection<EventLightDto>(list);
         }
     }
+
 
 }
