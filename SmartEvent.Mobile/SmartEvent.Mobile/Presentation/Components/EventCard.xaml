@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartEvent.Mobile.Presentation.Components.EventCard">
+
+    <Border StrokeShape="RoundRectangle 12"
+            StrokeThickness="0"
+            BackgroundColor="White"
+            Margin="15,8"
+            Padding="0">
+
+        <VerticalStackLayout>
+
+            <Image Source="{Binding ImageUrl}"
+                   Aspect="AspectFill"
+                   HeightRequest="160" />
+
+            <VerticalStackLayout Padding="16" Spacing="4">
+
+                <Label Text="{Binding Name}"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       TextColor="#212529" />
+
+                <Label Text="{Binding Description}"
+                       FontSize="14"
+                       TextColor="#6C757D"
+                       MaxLines="2"
+                       LineBreakMode="TailTruncation" />
+
+                <HorizontalStackLayout Spacing="5" Margin="0,8,0,0">
+                    <Label Text="🕒" FontSize="12" VerticalOptions="Center" />
+                    <Label Text="{Binding StartTime, StringFormat='{0:f}'}"
+                           FontSize="12"
+                           TextColor="#0D6EFD"
+                           VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+
+    </Border>
+
+</ContentView>

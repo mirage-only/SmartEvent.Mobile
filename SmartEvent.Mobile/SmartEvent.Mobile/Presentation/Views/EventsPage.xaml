@@ -1,17 +1,40 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SmartEvent.Mobile.Presentation.Views.EventsPage">
+             xmlns:controls="clr-namespace:SmartEvent.Mobile.Presentation.Components"
+             x:Class="SmartEvent.Mobile.Presentation.Views.EventsPage"
+             Title="Events">
 
-    <CollectionView ItemsSource="{Binding Events}">
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <VerticalStackLayout Padding="10">
-                    <Label Text="{Binding Name}" FontSize="18" />
-                    <Label Text="{Binding Description}" FontSize="14" />
-                    <Label Text="{Binding StartTime}" FontSize="12" />
-                </VerticalStackLayout>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+    <Shell.TitleView>
+        <Label Text="Events"
+                   FontSize="20"
+                   VerticalOptions="Center"
+                   Grid.Column="0" />
+    </Shell.TitleView>
+
+    <Grid RowDefinitions="Auto,*" Padding="20">
+
+        <VerticalStackLayout Grid.Row="0" Spacing="10">
+
+            <!-- TODO: searchbar here -->
+
+        </VerticalStackLayout>
+
+
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Events}"
+                        SelectionMode="None">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <controls:EventCard />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+
 </ContentPage>
