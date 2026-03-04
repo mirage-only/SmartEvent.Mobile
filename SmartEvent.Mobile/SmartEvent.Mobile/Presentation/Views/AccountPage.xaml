@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SmartEvent.Mobile.Presentation.Components"
+             x:Class="SmartEvent.Mobile.Presentation.Views.AccountPage"
+             Title="Profile">
+
+    <Shell.TitleView>
+        <Grid HorizontalOptions="FillAndExpand"
+              ColumnDefinitions="Auto,*,Auto"
+              Padding="12,0">
+
+            <Label Text="My profile"
+                   FontSize="20"
+                   VerticalOptions="Center"
+                   Grid.Column="0" />
+
+            <Grid Grid.Column="1" />
+
+            <Button Text="Logout"
+                    Grid.Column="2"
+                    BackgroundColor="#DC3545"
+                    TextColor="White"
+                    CornerRadius="8"
+                    Padding="12,4"
+                    Command="{Binding LogoutCommand}"
+                    VerticalOptions="Center" />
+        </Grid>
+    </Shell.TitleView>
+
+
+    <Grid RowDefinitions="Auto,*" Padding="20">
+
+        <VerticalStackLayout Spacing="25" Grid.Row="0">
+
+            <Border StrokeShape="RoundRectangle 12"
+                    BackgroundColor="White"
+                    Padding="20"
+                    StrokeThickness="0">
+                <VerticalStackLayout Spacing="6">
+
+                    <Label Text="{Binding FirstName}"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           TextColor="#212529" />
+
+                    <Label Text="{Binding Email}"
+                           FontSize="16"
+                           TextColor="#6C757D" />
+
+                </VerticalStackLayout>
+            </Border>
+
+            <Grid ColumnDefinitions="*,*" Padding="0,10">
+
+                <Label Text="Registered"
+                       Grid.Column="0"
+                       HorizontalOptions="Center"
+                       TextColor="{Binding RegisteredTabColor}"
+                       FontAttributes="{Binding RegisteredTabFont}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ShowRegisteredCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label Text="Attended"
+                       Grid.Column="1"
+                       HorizontalOptions="Center"
+                       TextColor="{Binding VisitedTabColor}"
+                       FontAttributes="{Binding VisitedTabFont}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ShowVisitedCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </Grid>
+
+        </VerticalStackLayout>
+
+
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding CurrentEvents}"
+                        SelectionMode="None">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <controls:EventCard />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+
+</ContentPage>
