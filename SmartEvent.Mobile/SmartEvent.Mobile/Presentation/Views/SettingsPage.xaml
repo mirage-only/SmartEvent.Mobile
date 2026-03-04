@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartEvent.Mobile.Presentation.Views.SettingsPage"
+             Title="Settings">
+
+    <Shell.TitleView>
+        <Label Text="Settings"
+                   FontSize="20"
+                   VerticalOptions="Center"
+                   Grid.Column="0" />
+    </Shell.TitleView>
+
+
+
+    <VerticalStackLayout Padding="20" Spacing="25">
+
+        <Label Text="Theme" FontSize="18" FontAttributes="Bold" />
+
+        <Picker ItemsSource="{Binding Themes}"
+                SelectedItem="{Binding SelectedTheme}"
+                Title="Theme" />
+
+        <Label Text="Language" FontSize="18" FontAttributes="Bold" />
+
+        <Picker ItemsSource="{Binding Languages}"
+                SelectedItem="{Binding SelectedLanguage}"
+                Title="Language" />
+
+    </VerticalStackLayout>
+
+</ContentPage>
