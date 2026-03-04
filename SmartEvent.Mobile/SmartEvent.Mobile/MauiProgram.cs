@@ -34,6 +34,12 @@ namespace SmartEvent.Mobile
             builder.Services.AddSingleton<LoginViewModel>(); 
             builder.Services.AddSingleton<LoginPage>();
 
+            builder.Services.AddSingleton<SettingsPage>();
+            builder.Services.AddSingleton<SettingsViewModel>();
+
+            builder.Services.AddSingleton<AccountPage>();
+            builder.Services.AddSingleton<AccountViewModel>();
+
 
 #if DEBUG
             builder.Logging.AddDebug();

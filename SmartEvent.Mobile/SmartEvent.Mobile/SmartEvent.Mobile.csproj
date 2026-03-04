@@ -85,6 +85,12 @@
 	  <Compile Update="AuthShell.xaml.cs">
 	    <DependentUpon>AuthShell.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Presentation\Components\EventCard.xaml.cs">
+	    <DependentUpon>EventCard.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Presentation\Views\AccountPage.xaml.cs">
+	    <DependentUpon>AccountPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Presentation\Views\EventsPage.xaml.cs">
 	    <DependentUpon>EventsPage.xaml</DependentUpon>
 	  </Compile>
@@ -94,10 +100,19 @@
 	  <Compile Update="Presentation\Views\RegisterPage.xaml.cs">
 	    <DependentUpon>RegisterPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Presentation\Views\SettingsPage.xaml.cs">
+	    <DependentUpon>SettingsPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="AuthShell.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Presentation\Components\EventCard.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Presentation\Views\AccountPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Presentation\Views\EventsPage.xaml">
@@ -107,6 +122,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Presentation\Views\RegisterPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Presentation\Views\SettingsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
