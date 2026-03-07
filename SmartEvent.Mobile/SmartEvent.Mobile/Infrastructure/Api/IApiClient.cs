@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using SmartEvent.Mobile.Core.Common;
 
 namespace SmartEvent.Mobile.Infrastructure.Api
 {
     public interface IApiClient
     {
-        Task<ApiResult<T>> GetAsync<T>(string url);
-        Task<ApiResult<T>> PostAsync<T>(string url, object body);
-        Task<ApiResult<T>> PutAsync<T>(string url, object body);
-        Task<ApiResult> DeleteAsync(string url);
+        Task<ApiResult<TResponse>> GetAsync<TResponse>(string url);
+        Task<ApiResult<TResponse>> PostAsync<TRequest, TResponse>(string url, TRequest payload);
+        Task<ApiResult<TResponse>> PutAsync<TRequest, TResponse>(string url, TRequest payload);
+        Task<ApiResult<TResponse>> DeleteAsync<TResponse>(string url);
     }
 
 }

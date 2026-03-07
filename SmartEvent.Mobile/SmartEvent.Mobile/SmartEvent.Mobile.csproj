@@ -67,18 +67,16 @@
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.3" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="10.0.3" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Core\DTOs\EventDTOs\Requests\" />
-	  <Folder Include="Domain\Models\" />
-	  <Folder Include="Domain\Interfaces\" />
-	  <Folder Include="Infrastructure\Storage\" />
-	  <Folder Include="Infrastructure\Geolocation\" />
-	  <Folder Include="Infrastructure\Qr\" />
+	  <Folder Include="Core\Interfaces\" />
+	  <Folder Include="Infrastructure\NativeServices\Geolocation\" />
+	  <Folder Include="Infrastructure\NativeServices\Qr\" />
 	</ItemGroup>
 
 	<ItemGroup>

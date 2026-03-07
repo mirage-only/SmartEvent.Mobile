@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using SmartEvent.Mobile.Core.IServices;
+using SmartEvent.Mobile.Core.Interfaces.IServices;
 using SmartEvent.Mobile.Infrastructure.Api;
 using SmartEvent.Mobile.Infrastructure.Services;
 using SmartEvent.Mobile.Presentation.ViewModels;
@@ -20,10 +20,17 @@ namespace SmartEvent.Mobile
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            builder.Services.AddHttpClient<IApiClient, ApiClient>();
+            builder.Services.AddTransient<AuthHeaderHandler>();
 
-            builder.Services.AddSingleton<IEventService, EventService>();
+            builder.Services.AddHttpClient<IApiClient, ApiClient>(client =>
+                {
+                    client.BaseAddress = new Uri(ApiRoutes.BaseUrl);
+                })
+                .AddHttpMessageHandler<AuthHeaderHandler>();
+            
             builder.Services.AddSingleton<IAuthService, AuthService>();
+            
+            builder.Services.AddSingleton<IEventService, EventService>();
 
             builder.Services.AddSingleton<EventsViewModel>();
             builder.Services.AddSingleton<EventsPage>();
@@ -39,12 +46,11 @@ namespace SmartEvent.Mobile
 
             builder.Services.AddSingleton<AccountPage>();
             builder.Services.AddSingleton<AccountViewModel>();
-
-
+            
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
-
+            
             return builder.Build();
         }
     }

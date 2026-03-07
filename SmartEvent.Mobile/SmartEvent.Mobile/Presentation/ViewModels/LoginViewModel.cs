@@ -1,10 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using SmartEvent.Mobile.Core.DTOs.UserDTOs.Requests;
-using SmartEvent.Mobile.Core.IServices;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using SmartEvent.Mobile.Core.Interfaces.IServices;
 
 namespace SmartEvent.Mobile.Presentation.ViewModels
 {
@@ -23,15 +23,19 @@ namespace SmartEvent.Mobile.Presentation.ViewModels
         private string? password;
 
         [RelayCommand]
+        [Obsolete("Obsolete")]
         private async Task Login()
         {
-            var token = await _authService.Login(new LoginUserRequestDto
+            var result = await _authService.LoginAsync(new LoginUserRequestDto(email, password));
+
+            if (result.IsSuccess)
             {
-                Email = Email,
-                Password = Password
-            });
-            await SecureStorage.SetAsync("jwt_token", token);
-            Shell.Current.Window.Page = new AppShell();
+                Shell.Current.Window?.Page = new AppShell();
+            }
+            else
+            { //TODO: через шо-то другое
+                Application.Current?.MainPage?.DisplayAlert("Oops...", result.Error, "OK");
+            }
         }
 
         [RelayCommand] 
