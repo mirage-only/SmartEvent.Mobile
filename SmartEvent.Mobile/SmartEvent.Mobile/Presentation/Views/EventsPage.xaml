@@ -7,9 +7,9 @@
 
     <Shell.TitleView>
         <Label Text="Events"
-                   FontSize="20"
-                   VerticalOptions="Center"
-                   Grid.Column="0" />
+               FontSize="20"
+               VerticalOptions="Center"
+               Grid.Column="0" />
     </Shell.TitleView>
 
     <Grid RowDefinitions="Auto,*" Padding="20">
@@ -19,7 +19,7 @@
             <!-- TODO: searchbar here -->
 
         </VerticalStackLayout>
-
+//xdatatupe
 
         <CollectionView Grid.Row="1"
                         ItemsSource="{Binding Events}"
@@ -34,7 +34,5 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
     </Grid>
-
 </ContentPage>

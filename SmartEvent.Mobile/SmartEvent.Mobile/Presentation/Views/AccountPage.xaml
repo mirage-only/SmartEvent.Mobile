@@ -53,25 +53,25 @@
 
             <Grid ColumnDefinitions="*,*" Padding="0,10">
 
-                <Label Text="Registered"
+                <Button Text="Registered"
                        Grid.Column="0"
                        HorizontalOptions="Center"
                        TextColor="{Binding RegisteredTabColor}"
                        FontAttributes="{Binding RegisteredTabFont}">
-                    <Label.GestureRecognizers>
+                    <Button.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ShowRegisteredCommand}" />
-                    </Label.GestureRecognizers>
-                </Label>
+                    </Button.GestureRecognizers>
+                </Button>
 
-                <Label Text="Attended"
-                       Grid.Column="1"
-                       HorizontalOptions="Center"
-                       TextColor="{Binding VisitedTabColor}"
-                       FontAttributes="{Binding VisitedTabFont}">
-                    <Label.GestureRecognizers>
+                <Button Text="Attended"
+                        Grid.Column="1"
+                        HorizontalOptions="Center"
+                        TextColor="{Binding VisitedTabColor}"
+                        FontAttributes="{Binding VisitedTabFont}">
+                    <Button.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ShowVisitedCommand}" />
-                    </Label.GestureRecognizers>
-                </Label>
+                    </Button.GestureRecognizers>
+                </Button>
 
             </Grid>
 
