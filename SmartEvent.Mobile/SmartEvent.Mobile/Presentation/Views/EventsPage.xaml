@@ -19,7 +19,6 @@
             <!-- TODO: searchbar here -->
 
         </VerticalStackLayout>
-//xdatatupe
 
         <CollectionView Grid.Row="1"
                         ItemsSource="{Binding Events}"
