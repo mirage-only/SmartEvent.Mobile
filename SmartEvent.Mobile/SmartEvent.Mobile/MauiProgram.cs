@@ -32,20 +32,22 @@ namespace SmartEvent.Mobile
             
             builder.Services.AddSingleton<IEventService, EventService>();
 
-            builder.Services.AddSingleton<EventsViewModel>();
-            builder.Services.AddSingleton<EventsPage>();
+            builder.Services.AddSingleton<ILocalizationService, LocalizationService>();
 
-            builder.Services.AddSingleton<RegisterViewModel>();
-            builder.Services.AddSingleton<RegisterPage>();
+            builder.Services.AddTransient<EventsViewModel>();
+            builder.Services.AddTransient<EventsPage>();
 
-            builder.Services.AddSingleton<LoginViewModel>(); 
-            builder.Services.AddSingleton<LoginPage>();
+            builder.Services.AddTransient<RegisterViewModel>();
+            builder.Services.AddTransient<RegisterPage>();
 
-            builder.Services.AddSingleton<SettingsPage>();
-            builder.Services.AddSingleton<SettingsViewModel>();
+            builder.Services.AddTransient<LoginViewModel>(); 
+            builder.Services.AddTransient<LoginPage>();
+                
+            builder.Services.AddTransient<SettingsPage>();
+            builder.Services.AddTransient<SettingsViewModel>();
 
-            builder.Services.AddSingleton<AccountPage>();
-            builder.Services.AddSingleton<AccountViewModel>();
+            builder.Services.AddTransient<AccountPage>();
+            builder.Services.AddTransient<AccountViewModel>();
             
 #if DEBUG
             builder.Logging.AddDebug();

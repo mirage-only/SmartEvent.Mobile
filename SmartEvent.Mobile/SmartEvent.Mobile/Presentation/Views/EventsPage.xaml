@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:SmartEvent.Mobile.Presentation.Components"
              x:Class="SmartEvent.Mobile.Presentation.Views.EventsPage"
+             xmlns:res="clr-namespace:SmartEvent.Mobile.Resources.Localization"
              Title="Events">
 
     <Shell.TitleView>
-        <Label Text="Events"
+        <Label Text="{x:Static res:AppResources.Events}"
                FontSize="20"
                VerticalOptions="Center"
                Grid.Column="0" />
@@ -19,7 +20,7 @@
             <!-- TODO: searchbar here -->
 
         </VerticalStackLayout>
-//xdatatupe
+            <!--xdatatype -->
 
         <CollectionView Grid.Row="1"
                         ItemsSource="{Binding Events}"
