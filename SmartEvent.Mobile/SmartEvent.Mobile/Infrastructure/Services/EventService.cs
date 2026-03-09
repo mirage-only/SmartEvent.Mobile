@@ -21,5 +21,10 @@ namespace SmartEvent.Mobile.Infrastructure.Services
 
             return result;
         }
+
+        public Task<ApiResult<EventDetailedDto>> GetDetailedEvent(Guid eventId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
