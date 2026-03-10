@@ -36,6 +36,9 @@ namespace SmartEvent.Mobile
 
             builder.Services.AddTransient<EventsViewModel>();
             builder.Services.AddTransient<EventsPage>();
+            
+            builder.Services.AddTransient<EventDetailsViewModel>();
+            builder.Services.AddTransient<EventDetailsPage>();
 
             builder.Services.AddTransient<RegisterViewModel>();
             builder.Services.AddTransient<RegisterPage>();
