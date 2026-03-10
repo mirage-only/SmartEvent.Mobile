@@ -5,24 +5,25 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:SmartEvent.Mobile"
     xmlns:views="clr-namespace:SmartEvent.Mobile.Presentation.Views"
+    xmlns:res="clr-namespace:SmartEvent.Mobile.Resources.Localization"
     Title="SmartEvent.Mobile">
 
     <TabBar>
 
     <ShellContent
-        Title="Events"
+        Title="{x:Static res:AppResources.Events}"
         Icon="events.png"
         Route="events"
         ContentTemplate="{DataTemplate views:EventsPage}" />
 
     <ShellContent
-        Title="Account"
+        Title="{x:Static res:AppResources.MyProfile}"
         Icon="account.png"
         Route="account"
         ContentTemplate="{DataTemplate views:AccountPage}" />
 
     <ShellContent
-        Title="Settings"
+        Title="{x:Static res:AppResources.SettingsPage}"
         Icon="settings.png"
         Route="settings"
         ContentTemplate="{DataTemplate views:SettingsPage}" />

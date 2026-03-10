@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:SmartEvent.Mobile.Presentation.Components"
+             xmlns:res="clr-namespace:SmartEvent.Mobile.Resources.Localization"
              x:Class="SmartEvent.Mobile.Presentation.Views.AccountPage"
              Title="Profile">
 
@@ -10,14 +11,14 @@
               ColumnDefinitions="Auto,*,Auto"
               Padding="12,0">
 
-            <Label Text="My profile"
+            <Label Text="{x:Static res:AppResources.MyProfile}"
                    FontSize="20"
                    VerticalOptions="Center"
                    Grid.Column="0" />
 
             <Grid Grid.Column="1" />
 
-            <Button Text="Logout"
+            <Button Text="{x:Static res:AppResources.Logout}"
                     Grid.Column="2"
                     BackgroundColor="#DC3545"
                     TextColor="White"
@@ -53,7 +54,7 @@
 
             <Grid ColumnDefinitions="*,*" Padding="0,10">
 
-                <Button Text="Registered"
+                <Button Text="{x:Static res:AppResources.Registered}"
                        Grid.Column="0"
                        HorizontalOptions="Center"
                        TextColor="{Binding RegisteredTabColor}"
@@ -63,7 +64,7 @@
                     </Button.GestureRecognizers>
                 </Button>
 
-                <Button Text="Attended"
+                <Button Text="{x:Static res:AppResources.Attended}"
                         Grid.Column="1"
                         HorizontalOptions="Center"
                         TextColor="{Binding VisitedTabColor}"
