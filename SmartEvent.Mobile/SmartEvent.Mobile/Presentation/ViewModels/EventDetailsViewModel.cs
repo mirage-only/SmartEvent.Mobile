@@ -11,7 +11,7 @@ public partial class EventDetailsViewModel : ObservableObject
 
     [ObservableProperty] private Guid _eventId;
 
-    [ObservableProperty] private EventDetailedDto? _event;
+    [ObservableProperty] private EventDetailsDto? _event;
 
     [ObservableProperty] private bool _isBusy;
 
@@ -33,7 +33,7 @@ public partial class EventDetailsViewModel : ObservableObject
         {
             IsBusy = true;
 
-            var result = await _eventService.GetDetailedEvent(eventId);
+            var result = await _eventService.GetEventDetails(eventId);
 
             if (result.IsSuccess && result.Data != null)
             {
