@@ -2,10 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SmartEvent.Mobile.Presentation.Views.SettingsPage"
+             xmlns:res="clr-namespace:SmartEvent.Mobile.Resources.Localization"
              Title="Settings">
 
     <Shell.TitleView>
-        <Label Text="Settings"
+        <Label Text="{x:Static res:AppResources.SettingsPage}"
                    FontSize="20"
                    VerticalOptions="Center"
                    Grid.Column="0" />
@@ -15,17 +16,19 @@
 
     <VerticalStackLayout Padding="20" Spacing="25">
 
-        <Label Text="Theme" FontSize="18" FontAttributes="Bold" />
+        <Label Text="{x:Static res:AppResources.ThemePicker}" FontSize="18" FontAttributes="Bold" />
 
         <Picker ItemsSource="{Binding Themes}"
                 SelectedItem="{Binding SelectedTheme}"
                 Title="Theme" />
 
-        <Label Text="Language" FontSize="18" FontAttributes="Bold" />
+        <Label Text="{x:Static res:AppResources.LanguagePicker}" FontSize="18" FontAttributes="Bold" />
 
         <Picker ItemsSource="{Binding Languages}"
-                SelectedItem="{Binding SelectedLanguage}"
-                Title="Language" />
+        SelectedItem="{Binding SelectedLanguage}"
+        ItemDisplayBinding="{Binding Title}"
+        Title="Language" />
+
 
     </VerticalStackLayout>
 
