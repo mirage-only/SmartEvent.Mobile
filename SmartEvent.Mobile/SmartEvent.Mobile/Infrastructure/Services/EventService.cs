@@ -8,6 +8,7 @@ namespace SmartEvent.Mobile.Infrastructure.Services
     public class EventService : IEventService
     {
         private readonly IApiClient _apiClient;
+
         public EventService(IApiClient apiClient)
         {
             _apiClient = apiClient;
@@ -22,9 +23,13 @@ namespace SmartEvent.Mobile.Infrastructure.Services
             return result;
         }
 
-        public Task<ApiResult<EventDetailedDto>> GetDetailedEvent(Guid eventId)
+        public Task<ApiResult<EventDetailsDto>> GetEventDetails(Guid eventId)
         {
-            throw new NotImplementedException();
+            string url = $"{ApiRoutes.GetEventDetails}?{eventId}";
+            
+            var result = _apiClient.GetAsync<EventDetailsDto>(url);
+            
+            return result;
         }
     }
 }

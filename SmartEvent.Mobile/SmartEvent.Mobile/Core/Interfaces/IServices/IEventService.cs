@@ -7,6 +7,6 @@ namespace SmartEvent.Mobile.Core.Interfaces.IServices
     {
         Task<ApiResult<PagedResult<EventLightDto>>> GetAllEvents(PaginationParams paginationParams);
         
-        Task<ApiResult<EventDetailedDto>> GetDetailedEvent(Guid eventId);
+        Task<ApiResult<EventDetailsDto>> GetEventDetails(Guid eventId);
     }
 }
