@@ -4,6 +4,8 @@
              xmlns:controls="clr-namespace:SmartEvent.Mobile.Presentation.Components"
              x:Class="SmartEvent.Mobile.Presentation.Views.EventsPage"
              xmlns:res="clr-namespace:SmartEvent.Mobile.Resources.Localization"
+             xmlns:vm="clr-namespace:SmartEvent.Mobile.Presentation.ViewModels"
+             x:DataType="vm:EventsViewModel"
              Title="Events">
 
     <Shell.TitleView>
@@ -20,8 +22,6 @@
             <!-- TODO: searchbar here -->
 
         </VerticalStackLayout>
-            <!--xdatatype -->
-
         <CollectionView Grid.Row="1"
                         ItemsSource="{Binding Events}"
                         SelectionMode="None">
