@@ -4,11 +4,13 @@ using SmartEvent.Mobile.Core.Interfaces.IServices;
 
 namespace SmartEvent.Mobile.Presentation.ViewModels;
 
-[QueryProperty(nameof(EventId), "id")]
+[QueryProperty(nameof(EventIdString), "id")]
 public partial class EventDetailsViewModel : ObservableObject
 {
     private readonly IEventService _eventService;
 
+    [ObservableProperty] private string _eventIdString;
+    
     [ObservableProperty] private Guid _eventId;
 
     [ObservableProperty] private EventDetailsDto? _event;
@@ -20,12 +22,17 @@ public partial class EventDetailsViewModel : ObservableObject
         _eventService = eventService;
     }
 
-    partial void OnEventIdChanged(Guid value)
+    partial void OnEventIdStringChanged(string value)
     {
-        Task.Run(async () => await LoadEventDetailsAsync(value));
+        if (Guid.TryParse(value, out var id))
+        {
+            EventId = id;
+            _ = LoadEventDetailsAsync(id);
+        }
+
     }
 
-    private async Task LoadEventDetailsAsync(Guid eventId)
+    private async Task LoadEventDetailsAsync(Guid id)
     {
         if(IsBusy) return;
 
@@ -33,7 +40,7 @@ public partial class EventDetailsViewModel : ObservableObject
         {
             IsBusy = true;
 
-            var result = await _eventService.GetEventDetails(eventId);
+            var result = await _eventService.GetEventDetails(id);
 
             if (result.IsSuccess && result.Data != null)
             {
