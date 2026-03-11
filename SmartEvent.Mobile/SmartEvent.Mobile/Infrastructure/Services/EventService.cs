@@ -23,11 +23,11 @@ namespace SmartEvent.Mobile.Infrastructure.Services
             return result;
         }
 
-        public Task<ApiResult<EventDetailsDto>> GetEventDetails(Guid eventId)
+        public async Task<ApiResult<EventDetailsDto>> GetEventDetails(Guid id)
         {
-            string url = $"{ApiRoutes.GetEventDetails}?{eventId}";
+            string url = $"{ApiRoutes.GetEventDetails}/{id}";
             
-            var result = _apiClient.GetAsync<EventDetailsDto>(url);
+            var result = await _apiClient.GetAsync<EventDetailsDto>(url);
             
             return result;
         }
