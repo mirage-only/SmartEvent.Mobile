@@ -35,9 +35,9 @@
             </HorizontalStackLayout>
             
             <HorizontalStackLayout Grid.Row="4" Spacing="10">
-                <Image Source="time_image.jpg" WidthRequest="20" HeightRequest="20"/>
+                <Image Source="calendar_image.jpg" WidthRequest="20" HeightRequest="20"/>
                 <VerticalStackLayout>
-                    <Label Text="Дата" FontSize="16"/>
+                    <Label Text="Время" FontSize="16"/>
                     <Label Text="{Binding Event.StartTime,
                          StringFormat='{0:HH:mm}'}" FontSize="12" TextColor="Gray"/>
                 </VerticalStackLayout>
