@@ -5,6 +5,7 @@
              x:Class="SmartEvent.Mobile.Presentation.Views.EventsPage"
              xmlns:res="clr-namespace:SmartEvent.Mobile.Resources.Localization"
              xmlns:vm="clr-namespace:SmartEvent.Mobile.Presentation.ViewModels"
+             xmlns:dto="clr-namespace:SmartEvent.Mobile.Core.DTOs.EventDTOs.Responses"
              x:DataType="vm:EventsViewModel"
              Title="Events">
 
@@ -30,8 +31,15 @@
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <controls:EventCard />
+                <DataTemplate x:DataType="dto:EventLightDto">
+                    <controls:EventCard>
+                        <controls:EventCard.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source = {RelativeSource AncestorType={x:Type vm:EventsViewModel}}, Path=GoToDetailsCommand}"
+                                CommandParameter="{Binding .}"
+                                />
+                        </controls:EventCard.GestureRecognizers>
+                    </controls:EventCard>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
