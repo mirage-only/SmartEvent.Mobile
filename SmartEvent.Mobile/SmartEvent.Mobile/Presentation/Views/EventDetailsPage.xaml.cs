@@ -9,8 +9,9 @@ namespace SmartEvent.Mobile.Presentation.Views;
 
 public partial class EventDetailsPage : ContentPage
 {
-    public EventDetailsPage()
+    public EventDetailsPage(EventDetailsViewModel viewModel)
     {
         InitializeComponent();
+        BindingContext = viewModel;
     }
 }
