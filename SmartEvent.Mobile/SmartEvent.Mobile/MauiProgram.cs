@@ -12,6 +12,7 @@ namespace SmartEvent.Mobile
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
+            var services = builder.Services;
             builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
@@ -20,37 +21,33 @@ namespace SmartEvent.Mobile
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            builder.Services.AddTransient<AuthHeaderHandler>();
+            services.AddTransient<AuthHeaderHandler>();
 
-            builder.Services.AddHttpClient<IApiClient, ApiClient>(client =>
+            services.AddHttpClient<IApiClient, ApiClient>(client =>
                 {
                     client.BaseAddress = new Uri(ApiRoutes.BaseUrl);
                 })
                 .AddHttpMessageHandler<AuthHeaderHandler>();
             
-            builder.Services.AddSingleton<IAuthService, AuthService>();
+            services.AddSingleton<IAuthService, AuthService>();
+            services.AddSingleton<IEventService, EventService>();
+            services.AddSingleton<ILocalizationService, LocalizationService>();
+
+            services.AddTransient<EventsViewModel>();
+            services.AddTransient<EventsPage>();
             
-            builder.Services.AddSingleton<IEventService, EventService>();
 
-            builder.Services.AddSingleton<ILocalizationService, LocalizationService>();
+            services.AddTransient<RegisterViewModel>();
+            services.AddTransient<RegisterPage>();
 
-            builder.Services.AddTransient<EventsViewModel>();
-            builder.Services.AddTransient<EventsPage>();
-            
-            builder.Services.AddTransient<EventDetailsViewModel>();
-            builder.Services.AddTransient<EventDetailsPage>();
-
-            builder.Services.AddTransient<RegisterViewModel>();
-            builder.Services.AddTransient<RegisterPage>();
-
-            builder.Services.AddTransient<LoginViewModel>(); 
-            builder.Services.AddTransient<LoginPage>();
+            services.AddTransient<LoginViewModel>(); 
+            services.AddTransient<LoginPage>();
                 
-            builder.Services.AddTransient<SettingsPage>();
-            builder.Services.AddTransient<SettingsViewModel>();
+            services.AddTransient<SettingsPage>();
+            services.AddTransient<SettingsViewModel>();
 
-            builder.Services.AddTransient<AccountPage>();
-            builder.Services.AddTransient<AccountViewModel>();
+            services.AddTransient<AccountPage>();
+            services.AddTransient<AccountViewModel>();
             
 #if DEBUG
             builder.Logging.AddDebug();
