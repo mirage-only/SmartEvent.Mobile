@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using SmartEvent.Mobile.Core.DTOs.EventDTOs.Responses;
 using SmartEvent.Mobile.Core.Interfaces.IServices;
 
@@ -8,18 +9,24 @@ namespace SmartEvent.Mobile.Presentation.ViewModels;
 public partial class EventDetailsViewModel : ObservableObject
 {
     private readonly IEventService _eventService;
+    private readonly IRegistrationService _registrationService;
+    private readonly IUserContext _userContext;
 
     [ObservableProperty] private string _eventIdString;
-    
     [ObservableProperty] private Guid _eventId;
-
     [ObservableProperty] private EventDetailsDto? _event;
 
-    [ObservableProperty] private bool _isBusy;
+    [ObservableProperty] private bool _isBusy = true;
+    [ObservableProperty] private bool _isRegistrationVisible = true;
+    
+    [ObservableProperty] private string _buttonText = "Зарегистрироваться";
+    [ObservableProperty] private string _buttonColor = "#FF0000FF";
 
-    public EventDetailsViewModel(IEventService eventService)
+    public EventDetailsViewModel(IEventService eventService, IRegistrationService registrationService, IUserContext userContext)
     {
         _eventService = eventService;
+        _registrationService = registrationService;
+        _userContext = userContext;
     }
 
     partial void OnEventIdStringChanged(string value)
@@ -29,7 +36,6 @@ public partial class EventDetailsViewModel : ObservableObject
             EventId = id;
             _ = LoadEventDetailsAsync(id);
         }
-
     }
 
     private async Task LoadEventDetailsAsync(Guid id)
@@ -45,6 +51,8 @@ public partial class EventDetailsViewModel : ObservableObject
             if (result.IsSuccess && result.Data != null)
             {
                 Event = result.Data;
+
+                if (Event.CreatorId == _userContext.UserId) IsRegistrationVisible = false;
             }
         }
         finally
@@ -52,4 +60,33 @@ public partial class EventDetailsViewModel : ObservableObject
             IsBusy = false;
         }
     }
+
+    [RelayCommand]
+    private async Task Register()
+    {
+        ButtonText = "Ожидание...";
+        ButtonColor = "#FFD3D3D3";
+
+        try
+        {
+            var result = await _registrationService.RegisterForEvent(EventId);
+
+            if (result.IsSuccess)
+            {
+                ButtonText = "Вы успешно зарегистрированы!";
+                ButtonColor = "#FF008000";
+            }
+            else
+            {
+                ButtonText = "Ошибка! Попробовать снова.";
+                ButtonColor = "#FFFF0000";
+            }
+        }
+        catch(Exception exception)
+        {
+            Console.WriteLine(exception);
+            ButtonText = "Ошибка! Попробовать снова.";
+            ButtonColor = "#FFFF0000";
+        }
+    } 
 }
