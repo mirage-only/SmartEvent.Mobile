@@ -4,6 +4,7 @@
              xmlns:controls="clr-namespace:SmartEvent.Mobile.Presentation.Components"
              xmlns:res="clr-namespace:SmartEvent.Mobile.Resources.Localization"
              x:Class="SmartEvent.Mobile.Presentation.Views.AccountPage"
+             BackgroundColor="{DynamicResource BackgroundColor}"
              Title="Profile">
 
     <Shell.TitleView>
@@ -14,14 +15,15 @@
             <Label Text="{x:Static res:AppResources.MyProfile}"
                    FontSize="20"
                    VerticalOptions="Center"
+                   TextColor="{DynamicResource PrimaryColor}"
                    Grid.Column="0" />
 
             <Grid Grid.Column="1" />
 
             <Button Text="{x:Static res:AppResources.Logout}"
                     Grid.Column="2"
-                    BackgroundColor="#DC3545"
-                    TextColor="White"
+                    BackgroundColor="{DynamicResource DangerButtonBackground}"
+                    TextColor="{DynamicResource DangerButtonTextColor}"
                     CornerRadius="8"
                     Padding="12,4"
                     Command="{Binding LogoutCommand}"
@@ -35,7 +37,7 @@
         <VerticalStackLayout Spacing="25" Grid.Row="0">
 
             <Border StrokeShape="RoundRectangle 12"
-                    BackgroundColor="White"
+                    BackgroundColor="{DynamicResource CardBackgroundColor}"
                     Padding="20"
                     StrokeThickness="0">
                 <VerticalStackLayout Spacing="6">
@@ -43,11 +45,11 @@
                     <Label Text="{Binding FirstName}"
                            FontSize="22"
                            FontAttributes="Bold"
-                           TextColor="#212529" />
+                           TextColor="{DynamicResource PrimaryColor}" />
 
                     <Label Text="{Binding Email}"
                            FontSize="16"
-                           TextColor="#6C757D" />
+                           TextColor="{DynamicResource SecondaryTextColor}" />
 
                 </VerticalStackLayout>
             </Border>
@@ -58,21 +60,13 @@
                        Grid.Column="0"
                        HorizontalOptions="Center"
                        TextColor="{Binding RegisteredTabColor}"
-                       FontAttributes="{Binding RegisteredTabFont}">
-                    <Button.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ShowRegisteredCommand}" />
-                    </Button.GestureRecognizers>
-                </Button>
+                       FontAttributes="{Binding RegisteredTabFont}" />
 
                 <Button Text="{x:Static res:AppResources.Attended}"
                         Grid.Column="1"
                         HorizontalOptions="Center"
                         TextColor="{Binding VisitedTabColor}"
-                        FontAttributes="{Binding VisitedTabFont}">
-                    <Button.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ShowVisitedCommand}" />
-                    </Button.GestureRecognizers>
-                </Button>
+                        FontAttributes="{Binding VisitedTabFont}" />
 
             </Grid>
 

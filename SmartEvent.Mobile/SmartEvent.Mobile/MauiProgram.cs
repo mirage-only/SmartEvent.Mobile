@@ -34,6 +34,8 @@ namespace SmartEvent.Mobile
 
             builder.Services.AddSingleton<ILocalizationService, LocalizationService>();
 
+            builder.Services.AddSingleton<IThemeService, ThemeService>();
+
             builder.Services.AddTransient<EventsViewModel>();
             builder.Services.AddTransient<EventsPage>();
 

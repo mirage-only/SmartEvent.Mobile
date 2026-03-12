@@ -5,7 +5,7 @@
 
     <Border StrokeShape="RoundRectangle 12"
             StrokeThickness="0"
-            BackgroundColor="White"
+            BackgroundColor="{DynamicResource CardBackgroundColor}"
             Margin="15,8"
             Padding="0">
 
@@ -20,19 +20,23 @@
                 <Label Text="{Binding Name}"
                        FontSize="18"
                        FontAttributes="Bold"
-                       TextColor="#212529" />
+                       TextColor="{DynamicResource PrimaryColor}" />
 
                 <Label Text="{Binding Description}"
                        FontSize="14"
-                       TextColor="#6C757D"
+                       TextColor="{DynamicResource SecondaryTextColor}"
                        MaxLines="2"
                        LineBreakMode="TailTruncation" />
 
                 <HorizontalStackLayout Spacing="5" Margin="0,8,0,0">
-                    <Label Text="🕒" FontSize="12" VerticalOptions="Center" />
+                    <Label Text="🕒"
+                           FontSize="12"
+                           VerticalOptions="Center"
+                           TextColor="{DynamicResource SecondaryTextColor}" />
+
                     <Label Text="{Binding StartTime, StringFormat='{0:f}'}"
                            FontSize="12"
-                           TextColor="#0D6EFD"
+                           TextColor="{DynamicResource PrimaryButtonBackground}"
                            VerticalOptions="Center" />
                 </HorizontalStackLayout>
 

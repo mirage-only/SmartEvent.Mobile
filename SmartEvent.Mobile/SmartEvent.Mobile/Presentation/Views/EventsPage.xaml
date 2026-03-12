@@ -2,31 +2,35 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:SmartEvent.Mobile.Presentation.Components"
-             x:Class="SmartEvent.Mobile.Presentation.Views.EventsPage"
              xmlns:res="clr-namespace:SmartEvent.Mobile.Resources.Localization"
+             x:Class="SmartEvent.Mobile.Presentation.Views.EventsPage"
+             BackgroundColor="{DynamicResource BackgroundColor}"
              Title="Events">
 
     <Shell.TitleView>
         <Label Text="{x:Static res:AppResources.Events}"
                FontSize="20"
                VerticalOptions="Center"
-               Grid.Column="0" />
+               TextColor="{DynamicResource PrimaryColor}" />
     </Shell.TitleView>
 
-    <Grid RowDefinitions="Auto,*" Padding="20">
+    <Grid RowDefinitions="Auto,*"
+          Padding="20"
+          BackgroundColor="{DynamicResource BackgroundColor}">
 
-        <VerticalStackLayout Grid.Row="0" Spacing="10">
+        <VerticalStackLayout Grid.Row="0"
+                             Spacing="10">
 
             <!-- TODO: searchbar here -->
 
         </VerticalStackLayout>
-            <!--xdatatype -->
 
         <CollectionView Grid.Row="1"
                         ItemsSource="{Binding Events}"
                         SelectionMode="None">
             <CollectionView.ItemsLayout>
-                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+                <LinearItemsLayout Orientation="Vertical"
+                                   ItemSpacing="10" />
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
@@ -35,5 +39,6 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
     </Grid>
 </ContentPage>
