@@ -14,4 +14,20 @@ public partial class UserContext: ObservableObject, IUserContext
     public bool IsAuthenticated => UserId != Guid.Empty;
     
     public void SetUser(string token)
+    {
+        if(string.IsNullOrEmpty(token)) return;
+        
+        var handler = new JwtSecurityTokenHandler();
+        if (!handler.CanReadToken(token)) return;
+        
+        var jwt = handler.ReadJwtToken(token);
+        
+        var idClaim = jwt.Claims.FirstOrDefault(c => c.Type == "id");
+        if (Guid.TryParse(idClaim?.Value, out var id)) UserId = id;
+        
+        var  emailClaim = jwt.Claims.FirstOrDefault(c => c.Type == "email");
+        if (emailClaim != null) UserEmail =  emailClaim.Value;
+        
+        var roleClaim = jwt.Claims.FirstOrDefault(c => c.Type == "role");
+        if (Enum.TryParse<UserRole>(roleClaim?.Value, out var role)) UserRole = role; 
     }
