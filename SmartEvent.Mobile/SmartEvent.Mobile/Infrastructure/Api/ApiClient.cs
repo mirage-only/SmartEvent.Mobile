@@ -19,6 +19,11 @@ public class ApiClient(HttpClient httpClient) : IApiClient
         ExecuteAsync<TResponse>(() 
             =>  httpClient.PostAsJsonAsync(url, payload));
 
+    public Task<ApiResult<TResponse>> PostAsync<TResponse>(string url) => 
+        ExecuteAsync<TResponse>(()
+            => httpClient.PostAsync(url, null!));
+    
+
     public Task<ApiResult<TResponse>> PutAsync<TRequest, TResponse>(string url, TRequest payload) =>
         ExecuteAsync<TResponse>(() =>
             httpClient.PutAsJsonAsync(url, payload));
