@@ -79,7 +79,8 @@ public partial class AccountViewModel : ObservableObject
     private async Task Logout()
     {
         SecureStorage.Remove("jwt_token");
-
+        _userContext.Clear();
+        
         var window = Application.Current?.Windows.FirstOrDefault();
         if (window != null)
             window.Page = new AuthShell();
