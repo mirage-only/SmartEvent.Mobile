@@ -19,6 +19,11 @@ public class ApiClient(HttpClient httpClient) : IApiClient
         ExecuteAsync<TResponse>(() 
             =>  httpClient.PostAsJsonAsync(url, payload));
 
+    public Task<ApiResult<TResponse>> PostAsync<TResponse>(string url) => 
+        ExecuteAsync<TResponse>(()
+            => httpClient.PostAsync(url, null!));
+    
+
     public Task<ApiResult<TResponse>> PutAsync<TRequest, TResponse>(string url, TRequest payload) =>
         ExecuteAsync<TResponse>(() =>
             httpClient.PutAsJsonAsync(url, payload));
@@ -76,7 +81,7 @@ public class ApiClient(HttpClient httpClient) : IApiClient
         }
         catch (JsonException)
         {
-            return ApiResult<T>.Failure("Bad request format!", (int)HttpStatusCode.InternalServerError, null);
+            return ApiResult<T>.Failure("Bad request format!", (int)HttpStatusCode.BadRequest, null);
         }
             
         return ApiResult<T>.Failure("Unknown server error! Try later)", (int)HttpStatusCode.InternalServerError, null);

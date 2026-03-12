@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartEvent.Mobile.Presentation.Views.EventDetailsPage"
+             xmlns:vm="clr-namespace:SmartEvent.Mobile.Presentation.ViewModels"
+             x:DataType="vm:EventDetailsViewModel"
+             Title="EventDetails">
+    <Grid>
+        <ScrollView>
+            <Grid Padding="20" RowSpacing="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="250" /> <!--Image-->
+                    <RowDefinition Height="Auto"/> <!--Name-->
+                    <RowDefinition Height="Auto"/> <!--Description-->
+                    <RowDefinition Height="Auto"/> <!--Date-->
+                    <RowDefinition Height="Auto"/> <!--Time-->
+                    <RowDefinition Height="Auto"/> <!--Reg Button-->
+                </Grid.RowDefinitions>
+            
+                <Border Grid.Row="0" StrokeShape="RoundRectangle 15" Padding="0">
+                    <Image Source="{Binding Event.ImageUrl}" Aspect="AspectFill"/>
+                </Border>
+            
+                <Label Grid.Row="1" Text="{Binding Event.Name}" FontSize="24" HorizontalOptions="Start"/>
+            
+                <Label Grid.Row="2" Text="{Binding Event.Description}" FontSize="16"/>
+            
+                <HorizontalStackLayout Grid.Row="3" Spacing="10">
+                    <Image Source="calendar_image.jpg" WidthRequest="20" HeightRequest="20"/>
+                    <VerticalStackLayout>
+                        <Label Text="Дата" FontSize="16"/>
+                        <Label Text="{Binding Event.StartTime,
+                                StringFormat='{0:dd.MM.yyyy}'}" FontSize="12" TextColor="Gray"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            
+                <HorizontalStackLayout Grid.Row="4" Spacing="10">
+                    <Image Source="calendar_image.jpg" WidthRequest="20" HeightRequest="20"/>
+                    <VerticalStackLayout>
+                        <Label Text="Время" FontSize="16"/>
+                        <Label Text="{Binding Event.StartTime,
+                            StringFormat='{0:HH:mm}'}" FontSize="12" TextColor="Gray"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+                
+                <Button Grid.Row="5" Text="{Binding ButtonText}"
+                        BackgroundColor="{Binding ButtonColor}"
+                        Command="{Binding RegisterCommand}"
+                        IsVisible="{Binding IsRegistrationVisible}"
+                        CornerRadius="10"/>
+            </Grid>
+        </ScrollView>
+        
+        <ActivityIndicator
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Color="{StaticResource Primary}"/>
+            
+        <BoxView Color="{AppThemeBinding Light=White,Dark=Black}"
+                 Opacity="0.6"
+                 IsVisible="{Binding IsBusy}"/>
+    </Grid>
+</ContentPage>

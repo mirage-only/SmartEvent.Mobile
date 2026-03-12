@@ -29,4 +29,12 @@ public partial class EventsViewModel : ObservableObject
             Events = new ObservableCollection<EventLightDto>(result.Data.Items);
         }
     }
+
+    [RelayCommand]
+    private async Task GoToDetails(EventLightDto? dto)
+    {
+        if (dto == null) return;
+        
+        await Shell.Current.GoToAsync($"EventDetailsPage?id={dto.Id}", true);
+    }
 }
