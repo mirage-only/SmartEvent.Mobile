@@ -31,3 +31,11 @@ public partial class UserContext: ObservableObject, IUserContext
         var roleClaim = jwt.Claims.FirstOrDefault(c => c.Type == "role");
         if (Enum.TryParse<UserRole>(roleClaim?.Value, out var role)) UserRole = role; 
     }
+
+    public void Clear()
+    {
+        UserId = Guid.Empty;
+        UserEmail = string.Empty;
+        UserRole = UserRole.Guest;
+    }
+}
