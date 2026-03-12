@@ -31,11 +31,15 @@ namespace SmartEvent.Mobile
             
             services.AddSingleton<IAuthService, AuthService>();
             services.AddSingleton<IEventService, EventService>();
+            services.AddSingleton<IRegistrationService, RegistrationService>();
             services.AddSingleton<ILocalizationService, LocalizationService>();
+            services.AddSingleton<IUserContext, UserContext>();
 
             services.AddTransient<EventsViewModel>();
             services.AddTransient<EventsPage>();
             
+            services.AddTransient<EventDetailsViewModel>();
+            services.AddTransient<EventDetailsPage>();
 
             services.AddTransient<RegisterViewModel>();
             services.AddTransient<RegisterPage>();
