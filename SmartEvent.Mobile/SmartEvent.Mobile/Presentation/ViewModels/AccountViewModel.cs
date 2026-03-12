@@ -7,6 +7,7 @@ namespace SmartEvent.Mobile.Presentation.ViewModels;
 
 public partial class AccountViewModel : ObservableObject
 {
+    [ObservableProperty] private IUserContext _userContext;
     
     [ObservableProperty] private string? firstName;
 
@@ -20,8 +21,9 @@ public partial class AccountViewModel : ObservableObject
 
 
 
-    public AccountViewModel()
+    public AccountViewModel(IUserContext userContext)
     {
+        _userContext = userContext;
         LoadUser();
     }
 
