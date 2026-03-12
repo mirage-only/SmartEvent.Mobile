@@ -16,8 +16,9 @@ public partial class EventDetailsViewModel : ObservableObject
     [ObservableProperty] private Guid _eventId;
     [ObservableProperty] private EventDetailsDto? _event;
 
-    [ObservableProperty] private bool _isBusy = true;
+    [ObservableProperty] private bool _isBusy;
     [ObservableProperty] private bool _isRegistrationVisible = true;
+    [ObservableProperty] private bool _isRegistrationEnabled = true;
     
     [ObservableProperty] private string _buttonText = "Зарегистрироваться";
     [ObservableProperty] private string _buttonColor = "#FF0000FF";
@@ -75,6 +76,7 @@ public partial class EventDetailsViewModel : ObservableObject
             {
                 ButtonText = "Вы успешно зарегистрированы!";
                 ButtonColor = "#FF008000";
+                IsRegistrationEnabled = false;
             }
             else
             {
