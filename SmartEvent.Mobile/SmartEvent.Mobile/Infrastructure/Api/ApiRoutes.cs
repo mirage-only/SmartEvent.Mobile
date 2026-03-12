@@ -14,4 +14,7 @@ public static class ApiRoutes
     private const string AuthUrl = $"{BaseUrl}/users/auth";
     public static readonly string RegisterUrl = $"{AuthUrl}/register";
     public static readonly string LoginUrl = $"{AuthUrl}/login";
+    
+    public static readonly string EventRegistrationUrl = $"{BaseUrl}/registration/regForEvent";
+    
 }
