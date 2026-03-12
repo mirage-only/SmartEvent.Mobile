@@ -1,26 +1,35 @@
 ﻿using SmartEvent.Mobile.Core.Interfaces.IServices;
-using Microsoft.Maui.Controls;
+using SmartEvent.Mobile.Resources.Styles.Themes;
 
-namespace SmartEvent.Mobile.Infrastructure.Services
+public class ThemeService : IThemeService
 {
-    public class ThemeService : IThemeService
+    public void SetTheme(string theme)
     {
-        public void SetTheme(string theme)
+        var appResources = Application.Current.Resources;
+        var merged = Application.Current.Resources.MergedDictionaries;
+
+        foreach (var dict in merged.ToList())
         {
-            switch (theme)
-            {
-                case "Light":
-                    Application.Current.UserAppTheme = AppTheme.Light;
-                    break;
+            if (dict is LightTheme || dict is DarkTheme)
+                merged.Remove(dict);
+        }
 
-                case "Dark":
-                    Application.Current.UserAppTheme = AppTheme.Dark;
-                    break;
 
-                default:
-                    Application.Current.UserAppTheme = AppTheme.Unspecified;
-                    break;
-            }
+        switch (theme)
+        {
+            case "Light":
+                merged.Add(new LightTheme());
+                Application.Current.UserAppTheme = AppTheme.Light;
+                break;
+
+            case "Dark":
+                merged.Add(new DarkTheme());
+                Application.Current.UserAppTheme = AppTheme.Dark;
+                break;
+
+            default:
+                Application.Current.UserAppTheme = AppTheme.Unspecified;
+                break;
         }
     }
 }

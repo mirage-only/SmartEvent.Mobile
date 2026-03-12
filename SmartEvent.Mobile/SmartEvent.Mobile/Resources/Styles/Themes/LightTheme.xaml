@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ResourceDictionary 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="SmartEvent.Mobile.Resources.Styles.Themes.LightTheme">
 
     <Color x:Key="Primary">#000000</Color>
     <Color x:Key="PrimaryDark">#333333</Color>
@@ -9,6 +10,9 @@
 
     <Color x:Key="Secondary">#6C757D</Color>
     <Color x:Key="SecondaryDarkText">#444444</Color>
+
+    <Color x:Key="CardBackgroundColor">#FAFAFA</Color>
+    <Color x:Key="CardBorderColor">#EAEAEA</Color>
 
     <Color x:Key="Tertiary">#2196F3</Color>
 
