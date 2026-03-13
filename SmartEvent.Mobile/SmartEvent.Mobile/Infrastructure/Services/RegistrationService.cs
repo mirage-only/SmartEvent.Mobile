@@ -19,4 +19,11 @@ public class RegistrationService: IRegistrationService
         var response = await _apiClient.PostAsync<Guid>(url);
         return response;
     }
+
+    public async Task<ApiResult<Guid>> IsRegistrationExist(Guid eventId)
+    {
+        string url = $"{ApiRoutes.IsRegistrationExistUrl}/{eventId}";
+        var response = await _apiClient.GetAsync<Guid>(url);
+        return response;
+    }
 }

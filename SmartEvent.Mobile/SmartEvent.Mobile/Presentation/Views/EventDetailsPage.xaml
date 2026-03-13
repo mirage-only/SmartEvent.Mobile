@@ -48,6 +48,7 @@
                         BackgroundColor="{Binding ButtonColor}"
                         Command="{Binding RegisterCommand}"
                         IsVisible="{Binding IsRegistrationVisible}"
+                        IsEnabled="{Binding IsRegistrationEnabled}"
                         CornerRadius="10"/>
             </Grid>
         </ScrollView>

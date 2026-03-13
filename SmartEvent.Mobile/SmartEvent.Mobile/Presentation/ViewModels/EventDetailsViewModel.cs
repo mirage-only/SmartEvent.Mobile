@@ -16,8 +16,9 @@ public partial class EventDetailsViewModel : ObservableObject
     [ObservableProperty] private Guid _eventId;
     [ObservableProperty] private EventDetailsDto? _event;
 
-    [ObservableProperty] private bool _isBusy = true;
+    [ObservableProperty] private bool _isBusy;
     [ObservableProperty] private bool _isRegistrationVisible = true;
+    [ObservableProperty] private bool _isRegistrationEnabled = true;
     
     [ObservableProperty] private string _buttonText = "Зарегистрироваться";
     [ObservableProperty] private string _buttonColor = "#FF0000FF";
@@ -53,6 +54,18 @@ public partial class EventDetailsViewModel : ObservableObject
                 Event = result.Data;
 
                 if (Event.CreatorId == _userContext.UserId) IsRegistrationVisible = false;
+                
+                var checkerForRegistered = await _registrationService.IsRegistrationExist(Event.Id);
+                if (checkerForRegistered.IsSuccess)
+                {
+                    var responseId = checkerForRegistered.Data;
+                    if (responseId != Guid.Empty)
+                    {
+                        IsRegistrationEnabled = false;
+                        ButtonText = "Вы уже зарегистрированы!";
+                        ButtonColor = "#FF008000";
+                    }
+                }
             }
         }
         finally
@@ -75,6 +88,7 @@ public partial class EventDetailsViewModel : ObservableObject
             {
                 ButtonText = "Вы успешно зарегистрированы!";
                 ButtonColor = "#FF008000";
+                IsRegistrationEnabled = false;
             }
             else
             {
