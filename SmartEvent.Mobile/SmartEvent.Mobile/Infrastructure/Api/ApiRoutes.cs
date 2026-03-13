@@ -1,4 +1,4 @@
-﻿namespace SmartEvent.Mobile.Infrastructure.Services;
+﻿namespace SmartEvent.Mobile.Infrastructure.Api;
 
 public static class ApiRoutes
 {
@@ -15,6 +15,8 @@ public static class ApiRoutes
     public static readonly string RegisterUrl = $"{AuthUrl}/register";
     public static readonly string LoginUrl = $"{AuthUrl}/login";
     
-    public static readonly string EventRegistrationUrl = $"{BaseUrl}/registration/regForEvent";
+    private const string RegistrationUrl =  $"{BaseUrl}/registration";
+    public static readonly string EventRegistrationUrl = $"{RegistrationUrl}/regForEvent";
+    public static readonly string IsRegistrationExistUrl =  $"{RegistrationUrl}/isRegistrationExist";
     
 }
