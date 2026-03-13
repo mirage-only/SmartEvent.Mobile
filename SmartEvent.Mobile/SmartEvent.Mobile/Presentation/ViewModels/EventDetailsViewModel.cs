@@ -54,6 +54,18 @@ public partial class EventDetailsViewModel : ObservableObject
                 Event = result.Data;
 
                 if (Event.CreatorId == _userContext.UserId) IsRegistrationVisible = false;
+                
+                var checkerForRegistered = await _registrationService.IsRegistrationExist(Event.Id);
+                if (checkerForRegistered.IsSuccess)
+                {
+                    var responseId = checkerForRegistered.Data;
+                    if (responseId != Guid.Empty)
+                    {
+                        IsRegistrationEnabled = false;
+                        ButtonText = "Вы уже зарегистрированы!";
+                        ButtonColor = "#FF008000";
+                    }
+                }
             }
         }
         finally
