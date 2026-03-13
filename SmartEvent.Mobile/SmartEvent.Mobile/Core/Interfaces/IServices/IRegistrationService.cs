@@ -5,4 +5,6 @@ namespace SmartEvent.Mobile.Core.Interfaces.IServices;
 public interface IRegistrationService
 {
     public Task<ApiResult<Guid>> RegisterForEvent(Guid eventId);
+    
+    public Task<ApiResult<Guid>> IsRegistrationExist(Guid eventId);
 }
