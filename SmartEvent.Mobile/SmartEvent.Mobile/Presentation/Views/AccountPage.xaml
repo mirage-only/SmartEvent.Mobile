@@ -4,6 +4,7 @@
              xmlns:controls="clr-namespace:SmartEvent.Mobile.Presentation.Components"
              xmlns:res="clr-namespace:SmartEvent.Mobile.Resources.Localization"
              x:Class="SmartEvent.Mobile.Presentation.Views.AccountPage"
+             BackgroundColor="{DynamicResource BackgroundColor}"
              Title="Profile">
 
     <Shell.TitleView>
@@ -12,73 +13,87 @@
               Padding="12,0">
 
             <Label Text="{x:Static res:AppResources.MyProfile}"
-                   FontSize="20"
-                   VerticalOptions="Center"
-                   Grid.Column="0" />
+                   Style="{StaticResource PageTitleLabelStyle}" />
 
-            <Grid Grid.Column="1" />
+            <Grid />
 
             <Button Text="{x:Static res:AppResources.Logout}"
                     Grid.Column="2"
-                    BackgroundColor="#DC3545"
-                    TextColor="White"
-                    CornerRadius="8"
-                    Padding="12,4"
-                    Command="{Binding LogoutCommand}"
-                    VerticalOptions="Center" />
+                    Style="{StaticResource LogoutButtonStyle}"
+                    Command="{Binding LogoutCommand}" />
+
         </Grid>
     </Shell.TitleView>
 
 
-    <Grid RowDefinitions="Auto,*" Padding="20">
+    <Grid RowDefinitions="Auto,*" Padding="20,10">
 
-        <VerticalStackLayout Spacing="25" Grid.Row="0">
+        <VerticalStackLayout Spacing="1">
 
-            <Border StrokeShape="RoundRectangle 12"
-                    BackgroundColor="White"
-                    Padding="20"
-                    StrokeThickness="0">
-                <VerticalStackLayout Spacing="6">
+            <!-- Профиль -->
+            <Border Style="{StaticResource ProfileCardStyle}">
+                <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
 
                     <Label Text="{Binding FirstName}"
-                           FontSize="22"
+                           FontSize="26"
                            FontAttributes="Bold"
-                           TextColor="#212529" />
+                           HorizontalTextAlignment="Center"
+                           TextColor="{DynamicResource PrimaryColor}" />
 
                     <Label Text="{Binding Email}"
-                           FontSize="16"
-                           TextColor="#6C757D" />
+                           FontSize="15"
+                           HorizontalTextAlignment="Center"
+                           TextColor="{DynamicResource SecondaryTextColor}" />
 
                 </VerticalStackLayout>
             </Border>
 
-            <Grid ColumnDefinitions="*,*" Padding="0,10">
 
-                <Button Text="{x:Static res:AppResources.Registered}"
-                       Grid.Column="0"
-                       HorizontalOptions="Center"
-                       TextColor="{Binding RegisteredTabColor}"
-                       FontAttributes="{Binding RegisteredTabFont}">
-                    <Button.GestureRecognizers>
+            <!-- Табы -->
+            <Grid ColumnDefinitions="*,*" Margin="0">
+
+                <!-- Registered -->
+                <Grid Grid.Column="0" Style="{StaticResource TabContainerStyle}">
+                    <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ShowRegisteredCommand}" />
-                    </Button.GestureRecognizers>
-                </Button>
+                    </Grid.GestureRecognizers>
 
-                <Button Text="{x:Static res:AppResources.Attended}"
-                        Grid.Column="1"
-                        HorizontalOptions="Center"
-                        TextColor="{Binding VisitedTabColor}"
-                        FontAttributes="{Binding VisitedTabFont}">
-                    <Button.GestureRecognizers>
+                    <Grid.Triggers>
+                        <DataTrigger TargetType="Grid"
+                                     Binding="{Binding Current}"
+                                     Value="Registered">
+                            <Setter Property="BackgroundColor" Value="{DynamicResource TabSelectedBackground}" />
+                        </DataTrigger>
+                    </Grid.Triggers>
+
+                    <Label Text="{x:Static res:AppResources.Registered}"
+                           Style="{StaticResource TabLabelStyle}" />
+                </Grid>
+
+                <!-- Visited -->
+                <Grid Grid.Column="1" Style="{StaticResource TabContainerStyle}">
+                    <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ShowVisitedCommand}" />
-                    </Button.GestureRecognizers>
-                </Button>
+                    </Grid.GestureRecognizers>
+
+                    <Grid.Triggers>
+                        <DataTrigger TargetType="Grid"
+                                     Binding="{Binding Current}"
+                                     Value="Visited">
+                            <Setter Property="BackgroundColor" Value="{DynamicResource TabSelectedBackground}" />
+                        </DataTrigger>
+                    </Grid.Triggers>
+
+                    <Label Text="{x:Static res:AppResources.Attended}"
+                           Style="{StaticResource TabLabelStyle}" />
+                </Grid>
 
             </Grid>
 
         </VerticalStackLayout>
 
 
+        <!-- Список событий -->
         <CollectionView Grid.Row="1"
                         ItemsSource="{Binding CurrentEvents}"
                         SelectionMode="None">

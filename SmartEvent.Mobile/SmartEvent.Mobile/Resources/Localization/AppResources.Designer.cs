@@ -97,11 +97,29 @@ namespace SmartEvent.Mobile.Resources.Localization {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Английский.
+        /// </summary>
+        internal static string LanguageEnglish {
+            get {
+                return ResourceManager.GetString("LanguageEnglish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Язык.
         /// </summary>
         internal static string LanguagePicker {
             get {
                 return ResourceManager.GetString("LanguagePicker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Русский.
+        /// </summary>
+        internal static string LanguageRussian {
+            get {
+                return ResourceManager.GetString("LanguageRussian", resourceCulture);
             }
         }
         
@@ -232,11 +250,20 @@ namespace SmartEvent.Mobile.Resources.Localization {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на .
+        ///   Ищет локализованную строку, похожую на Темная.
         /// </summary>
-        internal static string String1 {
+        internal static string ThemeDark {
             get {
-                return ResourceManager.GetString("String1", resourceCulture);
+                return ResourceManager.GetString("ThemeDark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Светлая.
+        /// </summary>
+        internal static string ThemeLight {
+            get {
+                return ResourceManager.GetString("ThemeLight", resourceCulture);
             }
         }
         
@@ -246,6 +273,15 @@ namespace SmartEvent.Mobile.Resources.Localization {
         internal static string ThemePicker {
             get {
                 return ResourceManager.GetString("ThemePicker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Системная.
+        /// </summary>
+        internal static string ThemeSystem {
+            get {
+                return ResourceManager.GetString("ThemeSystem", resourceCulture);
             }
         }
     }

@@ -5,12 +5,16 @@ namespace SmartEvent.Mobile
 {
     public partial class App : Application
     {
-        public App(ILocalizationService localizationService)
+        public App(ILocalizationService localizationService, IThemeService themeService)
         {
             InitializeComponent();
 
             var savedLanguage = Preferences.Get("language", "ru");
             localizationService.SetCulture(savedLanguage);
+
+            var savedTheme = Preferences.Get("theme", "System");
+            themeService.SetTheme(savedTheme);
+
         }
 
         protected override Window CreateWindow(IActivationState? activationState)

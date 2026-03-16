@@ -6,50 +6,75 @@
     xmlns:res="clr-namespace:SmartEvent.Mobile.Resources.Localization"
     x:DataType="viewModels:RegisterViewModel"
     x:Class="SmartEvent.Mobile.Presentation.Views.RegisterPage"
-    Title="Registration"
+    BackgroundColor="{DynamicResource BackgroundColor}"
     Shell.NavBarIsVisible="False">
 
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="16">
+        <VerticalStackLayout Padding="20" Spacing="20">
 
             <Label Text="{x:Static res:AppResources.RegistrationPage}"
-                   FontSize="28"
-                   HorizontalOptions="Center" />
+                   Style="{StaticResource PageTitleLabelStyle}" />
 
-            <Entry Placeholder="{x:Static res:AppResources.Email}"
-                   Text="{Binding Email}"
-                   Keyboard="Email" />
+            <!-- Email -->
+            <Border Style="{StaticResource ThemedEntryContainer}">
+                <Entry Style="{StaticResource ThemedEntry}"
+                       Placeholder="{x:Static res:AppResources.Email}"
+                       Text="{Binding Email}"
+                       Keyboard="Email" />
+            </Border>
 
-            <Entry Placeholder="{x:Static res:AppResources.Password}"
-                   Text="{Binding Password}"
-                   IsPassword="True" />
+            <!-- Password -->
+            <Border Style="{StaticResource ThemedEntryContainer}">
+                <Entry Style="{StaticResource ThemedEntry}"
+                       Placeholder="{x:Static res:AppResources.Password}"
+                       Text="{Binding Password}"
+                       IsPassword="True" />
+            </Border>
 
-            <Entry Placeholder="{x:Static res:AppResources.PasswordConfirm}"
-                   Text="{Binding ConfirmPassword}"
-                   IsPassword="True" />
+            <!-- Confirm Password -->
+            <Border Style="{StaticResource ThemedEntryContainer}">
+                <Entry Style="{StaticResource ThemedEntry}"
+                       Placeholder="{x:Static res:AppResources.PasswordConfirm}"
+                       Text="{Binding ConfirmPassword}"
+                       IsPassword="True" />
+            </Border>
 
-            <Entry Placeholder="{x:Static res:AppResources.FirstName}"
-                   Text="{Binding Firstname}" />
+            <!-- First Name -->
+            <Border Style="{StaticResource ThemedEntryContainer}">
+                <Entry Style="{StaticResource ThemedEntry}"
+                       Placeholder="{x:Static res:AppResources.FirstName}"
+                       Text="{Binding Firstname}" />
+            </Border>
 
-            <Entry Placeholder="{x:Static res:AppResources.LastName}"
-                   Text="{Binding Lastname}" />
+            <!-- Last Name -->
+            <Border Style="{StaticResource ThemedEntryContainer}">
+                <Entry Style="{StaticResource ThemedEntry}"
+                       Placeholder="{x:Static res:AppResources.LastName}"
+                       Text="{Binding Lastname}" />
+            </Border>
 
-            <Entry Placeholder="{x:Static res:AppResources.Patronymic}"
-                   Text="{Binding Patronymic}" />
+            <!-- Patronymic -->
+            <Border Style="{StaticResource ThemedEntryContainer}">
+                <Entry Style="{StaticResource ThemedEntry}"
+                       Placeholder="{x:Static res:AppResources.Patronymic}"
+                       Text="{Binding Patronymic}" />
+            </Border>
 
+            <!-- Register button -->
             <Button Text="{x:Static res:AppResources.RegisterButton}"
                     Command="{Binding RegisterCommand}"
-                    BackgroundColor="#4CAF50"
-                    TextColor="White"
+                    BackgroundColor="{DynamicResource SuccessButtonBackground}"
+                    TextColor="{DynamicResource SuccessButtonTextColor}"
                     CornerRadius="8"
                     HeightRequest="50" />
 
+            <!-- Login button -->
             <Button Text="{x:Static res:AppResources.LoginPageButton}"
                     Command="{Binding GoToLoginCommand}"
-                    BackgroundColor="#2196F3"
-                    TextColor="White"
+                    BackgroundColor="{DynamicResource PrimaryButtonBackground}"
+                    TextColor="{DynamicResource PrimaryButtonTextColor}"
                     CornerRadius="8"
-                    HeightRequest="50" />            
+                    HeightRequest="50" />
 
         </VerticalStackLayout>
     </ScrollView>

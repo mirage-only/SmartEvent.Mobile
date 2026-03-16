@@ -19,7 +19,8 @@ public partial class AccountViewModel : ObservableObject
 
     [ObservableProperty] private List<EventLightDto> currentEvents;
 
-
+    [ObservableProperty]
+    private string current = "Registered";
 
     public AccountViewModel(IUserContext userContext)
     {
@@ -85,6 +86,6 @@ public partial class AccountViewModel : ObservableObject
         if (window != null)
             window.Page = new AuthShell();
     }
-    [RelayCommand] void ShowRegistered() { CurrentEvents = RegisteredEvents; }
-    [RelayCommand] void ShowVisited() { CurrentEvents = VisitedEvents; }
+    [RelayCommand] void ShowRegistered() { CurrentEvents = RegisteredEvents; Current = "Registered"; }
+    [RelayCommand] void ShowVisited() { CurrentEvents = VisitedEvents; Current = "Visited"; }
 }

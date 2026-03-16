@@ -177,4 +177,19 @@
   <data name="LanguagePicker" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="LanguageRussian" xml:space="preserve">
+    <value>Russian</value>
+  </data>
+  <data name="LanguageEnglish" xml:space="preserve">
+    <value>English</value>
+  </data>
 </root>

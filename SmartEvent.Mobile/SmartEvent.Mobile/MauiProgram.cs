@@ -33,6 +33,7 @@ namespace SmartEvent.Mobile
             services.AddSingleton<IEventService, EventService>();
             services.AddSingleton<IRegistrationService, RegistrationService>();
             services.AddSingleton<ILocalizationService, LocalizationService>();
+            services.AddSingleton<IThemeService, ThemeService>();
             services.AddSingleton<IUserContext, UserContext>();
 
             services.AddTransient<EventsViewModel>();

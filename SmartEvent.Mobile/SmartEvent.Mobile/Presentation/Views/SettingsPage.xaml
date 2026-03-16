@@ -1,34 +1,41 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SmartEvent.Mobile.Presentation.Views.SettingsPage"
              xmlns:res="clr-namespace:SmartEvent.Mobile.Resources.Localization"
+             x:Class="SmartEvent.Mobile.Presentation.Views.SettingsPage"
+             BackgroundColor="{DynamicResource BackgroundColor}"
              Title="Settings">
 
     <Shell.TitleView>
         <Label Text="{x:Static res:AppResources.SettingsPage}"
-                   FontSize="20"
-                   VerticalOptions="Center"
-                   Grid.Column="0" />
+               Style="{StaticResource PageTitleLabelStyle}" />
     </Shell.TitleView>
-
-
 
     <VerticalStackLayout Padding="20" Spacing="25">
 
-        <Label Text="{x:Static res:AppResources.ThemePicker}" FontSize="18" FontAttributes="Bold" />
+        <!-- Theme -->
+        <Label Text="{x:Static res:AppResources.ThemePicker}"
+               Style="{StaticResource SettingsSectionHeaderStyle}" />
 
-        <Picker ItemsSource="{Binding Themes}"
-                SelectedItem="{Binding SelectedTheme}"
-                Title="Theme" />
+        <Border Style="{StaticResource ThemedPickerContainer}">
+            <Picker Style="{StaticResource ThemedPicker}"
+                    ItemsSource="{Binding Themes}"
+                    SelectedItem="{Binding SelectedTheme}"
+                    ItemDisplayBinding="{Binding Title}"
+                    Title="{x:Static res:AppResources.ThemePicker}" />
+        </Border>
 
-        <Label Text="{x:Static res:AppResources.LanguagePicker}" FontSize="18" FontAttributes="Bold" />
+        <!-- Language -->
+        <Label Text="{x:Static res:AppResources.LanguagePicker}"
+               Style="{StaticResource SettingsSectionHeaderStyle}" />
 
-        <Picker ItemsSource="{Binding Languages}"
-        SelectedItem="{Binding SelectedLanguage}"
-        ItemDisplayBinding="{Binding Title}"
-        Title="Language" />
-
+        <Border Style="{StaticResource ThemedPickerContainer}">
+            <Picker Style="{StaticResource ThemedPicker}"
+                    ItemsSource="{Binding Languages}"
+                    SelectedItem="{Binding SelectedLanguage}"
+                    ItemDisplayBinding="{Binding Title}"
+                    Title="{x:Static res:AppResources.LanguagePicker}" />
+        </Border>
 
     </VerticalStackLayout>
 
