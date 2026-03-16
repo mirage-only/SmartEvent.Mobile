@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:res="clr-namespace:SmartEvent.Mobile.Resources.Localization"
-             x:Class="SmartEvent.Mobile.Presentation.Views.SettingsPage"
-             BackgroundColor="{DynamicResource BackgroundColor}"
-             Title="Settings">
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:res="clr-namespace:SmartEvent.Mobile.Resources.Localization"
+    xmlns:vm="clr-namespace:SmartEvent.Mobile.Presentation.ViewModels"
+    x:DataType="vm:SettingsViewModel"
+    x:Class="SmartEvent.Mobile.Presentation.Views.SettingsPage"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    Title="Settings">
 
     <Shell.TitleView>
         <Label Text="{x:Static res:AppResources.SettingsPage}"
