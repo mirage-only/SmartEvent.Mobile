@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:SmartEvent.Mobile.Presentation.Components"
-             xmlns:res="clr-namespace:SmartEvent.Mobile.Resources.Localization"
-             x:Class="SmartEvent.Mobile.Presentation.Views.AccountPage"
-             BackgroundColor="{DynamicResource BackgroundColor}"
-             Title="Profile">
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:SmartEvent.Mobile.Presentation.Components"
+    xmlns:res="clr-namespace:SmartEvent.Mobile.Resources.Localization"
+    xmlns:viewModels="using:SmartEvent.Mobile.Presentation.ViewModels"
+    xmlns:models="using:SmartEvent.Mobile.Core.Models"
+    x:DataType="viewModels:AccountViewModel"
+    x:Class="SmartEvent.Mobile.Presentation.Views.AccountPage"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    Title="Profile">
 
     <Shell.TitleView>
         <Grid HorizontalOptions="FillAndExpand"
@@ -97,15 +101,17 @@
         <CollectionView Grid.Row="1"
                         ItemsSource="{Binding CurrentEvents}"
                         SelectionMode="None">
+
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="models:EventModel">
                     <controls:EventCard />
                 </DataTemplate>
             </CollectionView.ItemTemplate>
+
         </CollectionView>
 
     </Grid>
