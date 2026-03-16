@@ -7,7 +7,6 @@
     <!--      ENTRY (TEXT FIELD)   -->
     <!-- ========================= -->
 
-    <!-- Внутренний стиль Entry -->
     <Style x:Key="ThemedEntry" TargetType="Entry">
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
@@ -16,7 +15,6 @@
         <Setter Property="FontFamily" Value="OpenSansRegular" />
     </Style>
 
-    <!-- Контейнер Entry -->
     <Style x:Key="ThemedEntryContainer" TargetType="Border">
         <Setter Property="Stroke" Value="{DynamicResource Gray300Brush}" />
         <Setter Property="StrokeThickness" Value="1" />
@@ -30,7 +28,6 @@
     <!--          PICKER           -->
     <!-- ========================= -->
 
-    <!-- Внутренний стиль Picker -->
     <Style x:Key="ThemedPicker" TargetType="Picker">
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
@@ -39,13 +36,126 @@
         <Setter Property="FontFamily" Value="OpenSansRegular" />
     </Style>
 
-    <!-- Контейнер Picker -->
     <Style x:Key="ThemedPickerContainer" TargetType="Border">
         <Setter Property="Stroke" Value="{DynamicResource Gray300Brush}" />
         <Setter Property="StrokeThickness" Value="1" />
         <Setter Property="StrokeShape" Value="RoundRectangle 8" />
         <Setter Property="BackgroundColor" Value="{DynamicResource EntryBackgroundColor}" />
         <Setter Property="Padding" Value="10" />
+    </Style>
+
+
+    <!-- ========================= -->
+    <!--     PROFILE CARD STYLE    -->
+    <!-- ========================= -->
+
+    <Style x:Key="ProfileCardStyle" TargetType="Border">
+        <Setter Property="StrokeShape" Value="RoundRectangle 16" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource CardBackgroundColor}" />
+        <Setter Property="Stroke" Value="{DynamicResource CardBorderBrush}" />
+        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="Padding" Value="28" />
+        <Setter Property="Margin" Value="0,0,0,6" />
+    </Style>
+
+
+    <!-- ========================= -->
+    <!--          TABS             -->
+    <!-- ========================= -->
+
+    <Style x:Key="TabContainerStyle" TargetType="Grid">
+        <Setter Property="HeightRequest" Value="48" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource TabUnselectedBackground}" />
+    </Style>
+
+    <Style x:Key="TabLabelStyle" TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
+    </Style>
+
+
+    <!-- ========================= -->
+    <!--        LOGOUT BUTTON      -->
+    <!-- ========================= -->
+
+    <Style x:Key="LogoutButtonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{DynamicResource DangerButtonBackground}" />
+        <Setter Property="TextColor" Value="{DynamicResource DangerButtonTextColor}" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="Padding" Value="12,4" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+
+    <!-- ========================= -->
+    <!--   SETTINGS SECTION TITLE  -->
+    <!-- ========================= -->
+
+    <Style x:Key="SettingsSectionHeaderStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="Margin" Value="0,0,0,4" />
+    </Style>
+
+
+    <!-- ========================= -->
+    <!--      PAGE TITLE LABEL     -->
+    <!-- ========================= -->
+
+    <Style x:Key="PageTitleLabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
+    </Style>
+
+
+    <!-- ========================= -->
+    <!--        EVENT CARD         -->
+    <!-- ========================= -->
+
+    <!-- Border -->
+    <Style x:Key="EventCardBorderStyle" TargetType="Border">
+        <Setter Property="StrokeShape" Value="RoundRectangle 12" />
+        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource CardBackgroundColor}" />
+        <Setter Property="Margin" Value="15,8" />
+        <Setter Property="Padding" Value="0" />
+    </Style>
+
+    <!-- Title -->
+    <Style x:Key="EventTitleLabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
+    </Style>
+
+    <!-- Description -->
+    <Style x:Key="EventDescriptionLabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="{DynamicResource SecondaryTextColor}" />
+        <Setter Property="MaxLines" Value="2" />
+        <Setter Property="LineBreakMode" Value="TailTruncation" />
+    </Style>
+
+    <!-- Time icon -->
+    <Style x:Key="EventTimeIconStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="TextColor" Value="{DynamicResource SecondaryTextColor}" />
+    </Style>
+
+    <!-- Time text -->
+    <Style x:Key="EventTimeLabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryButtonBackground}" />
     </Style>
 
 </ResourceDictionary>

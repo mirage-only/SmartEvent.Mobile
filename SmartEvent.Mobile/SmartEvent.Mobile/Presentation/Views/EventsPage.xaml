@@ -9,9 +9,7 @@
 
     <Shell.TitleView>
         <Label Text="{x:Static res:AppResources.Events}"
-               FontSize="20"
-               VerticalOptions="Center"
-               TextColor="{DynamicResource PrimaryColor}" />
+               Style="{StaticResource PageTitleLabelStyle}" />
     </Shell.TitleView>
 
     <Grid RowDefinitions="Auto,*"

@@ -12,9 +12,7 @@
     <VerticalStackLayout Padding="20" Spacing="20">
 
         <Label Text="{x:Static res:AppResources.LoginPage}" 
-               FontSize="28" 
-               HorizontalOptions="Center"
-               TextColor="{DynamicResource PrimaryColor}" />
+               Style="{StaticResource PageTitleLabelStyle}" />
 
         <!-- Email -->
         <Border Style="{StaticResource ThemedEntryContainer}">

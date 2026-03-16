@@ -8,18 +8,14 @@
 
     <Shell.TitleView>
         <Label Text="{x:Static res:AppResources.SettingsPage}"
-               FontSize="20"
-               VerticalOptions="Center"
-               TextColor="{DynamicResource PrimaryColor}" />
+               Style="{StaticResource PageTitleLabelStyle}" />
     </Shell.TitleView>
 
     <VerticalStackLayout Padding="20" Spacing="25">
 
         <!-- Theme -->
         <Label Text="{x:Static res:AppResources.ThemePicker}"
-               FontSize="18"
-               FontAttributes="Bold"
-               TextColor="{DynamicResource PrimaryColor}" />
+               Style="{StaticResource SettingsSectionHeaderStyle}" />
 
         <Border Style="{StaticResource ThemedPickerContainer}">
             <Picker Style="{StaticResource ThemedPicker}"
@@ -30,9 +26,7 @@
 
         <!-- Language -->
         <Label Text="{x:Static res:AppResources.LanguagePicker}"
-               FontSize="18"
-               FontAttributes="Bold"
-               TextColor="{DynamicResource PrimaryColor}" />
+               Style="{StaticResource SettingsSectionHeaderStyle}" />
 
         <Border Style="{StaticResource ThemedPickerContainer}">
             <Picker Style="{StaticResource ThemedPicker}"

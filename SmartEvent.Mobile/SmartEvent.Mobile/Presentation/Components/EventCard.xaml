@@ -3,11 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SmartEvent.Mobile.Presentation.Components.EventCard">
 
-    <Border StrokeShape="RoundRectangle 12"
-            StrokeThickness="0"
-            BackgroundColor="{DynamicResource CardBackgroundColor}"
-            Margin="15,8"
-            Padding="0">
+    <Border Style="{StaticResource EventCardBorderStyle}">
 
         <VerticalStackLayout>
 
@@ -18,26 +14,19 @@
             <VerticalStackLayout Padding="16" Spacing="4">
 
                 <Label Text="{Binding Name}"
-                       FontSize="18"
-                       FontAttributes="Bold"
-                       TextColor="{DynamicResource PrimaryColor}" />
+                       Style="{StaticResource EventTitleLabelStyle}" />
 
                 <Label Text="{Binding Description}"
-                       FontSize="14"
-                       TextColor="{DynamicResource SecondaryTextColor}"
-                       MaxLines="2"
-                       LineBreakMode="TailTruncation" />
+                       Style="{StaticResource EventDescriptionLabelStyle}" />
 
                 <HorizontalStackLayout Spacing="5" Margin="0,8,0,0">
+
                     <Label Text="🕒"
-                           FontSize="12"
-                           VerticalOptions="Center"
-                           TextColor="{DynamicResource SecondaryTextColor}" />
+                           Style="{StaticResource EventTimeIconStyle}" />
 
                     <Label Text="{Binding StartTime, StringFormat='{0:f}'}"
-                           FontSize="12"
-                           TextColor="{DynamicResource PrimaryButtonBackground}"
-                           VerticalOptions="Center" />
+                           Style="{StaticResource EventTimeLabelStyle}" />
+
                 </HorizontalStackLayout>
 
             </VerticalStackLayout>
