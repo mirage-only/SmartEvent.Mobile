@@ -8,6 +8,7 @@ namespace SmartEvent.Mobile.Infrastructure.Services
     public class EventService : IEventService
     {
         private readonly IApiClient _apiClient;
+
         public EventService(IApiClient apiClient)
         {
             _apiClient = apiClient;
@@ -19,6 +20,15 @@ namespace SmartEvent.Mobile.Infrastructure.Services
 
             var result = await _apiClient.PostAsync<PaginationParams, PagedResult<EventLightDto>>(url, paginationParams);
 
+            return result;
+        }
+
+        public async Task<ApiResult<EventDetailsDto>> GetEventDetails(Guid id)
+        {
+            string url = $"{ApiRoutes.GetEventDetails}/{id}";
+            
+            var result = await _apiClient.GetAsync<EventDetailsDto>(url);
+            
             return result;
         }
     }

@@ -1,31 +1,30 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using SmartEvent.Mobile.Core.DTOs.EventDTOs.Responses;
+using SmartEvent.Mobile.Core.Interfaces.IServices;
 
 namespace SmartEvent.Mobile.Presentation.ViewModels;
 
 public partial class AccountViewModel : ObservableObject
 {
-    [ObservableProperty]
-    private string? firstName;
+    [ObservableProperty] private IUserContext _userContext;
+    
+    [ObservableProperty] private string? firstName;
 
-    [ObservableProperty]
-    private string? email;
+    [ObservableProperty] private string? email;
 
-    [ObservableProperty] 
-    private List<EventLightDto> registeredEvents; 
+    [ObservableProperty] private List<EventLightDto> registeredEvents; 
 
-    [ObservableProperty] 
-    private List<EventLightDto> visitedEvents; 
+    [ObservableProperty] private List<EventLightDto> visitedEvents; 
 
-    [ObservableProperty] 
-    private List<EventLightDto> currentEvents;
+    [ObservableProperty] private List<EventLightDto> currentEvents;
 
     [ObservableProperty]
     private string current = "Registered";
 
-    public AccountViewModel()
+    public AccountViewModel(IUserContext userContext)
     {
+        _userContext = userContext;
         LoadUser();
     }
 
@@ -81,7 +80,8 @@ public partial class AccountViewModel : ObservableObject
     private async Task Logout()
     {
         SecureStorage.Remove("jwt_token");
-
+        _userContext.Clear();
+        
         var window = Application.Current?.Windows.FirstOrDefault();
         if (window != null)
             window.Page = new AuthShell();

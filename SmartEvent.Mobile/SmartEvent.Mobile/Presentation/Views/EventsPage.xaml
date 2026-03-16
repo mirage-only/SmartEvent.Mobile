@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:SmartEvent.Mobile.Presentation.Components"
              xmlns:res="clr-namespace:SmartEvent.Mobile.Resources.Localization"
+             xmlns:vm="clr-namespace:SmartEvent.Mobile.Presentation.ViewModels"
+             xmlns:dto="clr-namespace:SmartEvent.Mobile.Core.DTOs.EventDTOs.Responses"
+             x:DataType="vm:EventsViewModel"
              x:Class="SmartEvent.Mobile.Presentation.Views.EventsPage"
              BackgroundColor="{DynamicResource BackgroundColor}"
              Title="Events">
@@ -23,6 +26,7 @@
 
         </VerticalStackLayout>
 
+
         <CollectionView Grid.Row="1"
                         ItemsSource="{Binding Events}"
                         SelectionMode="None">
@@ -32,8 +36,15 @@
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <controls:EventCard />
+                <DataTemplate x:DataType="dto:EventLightDto">
+                    <controls:EventCard>
+                        <controls:EventCard.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source = {RelativeSource AncestorType={x:Type vm:EventsViewModel}}, Path=GoToDetailsCommand}"
+                                CommandParameter="{Binding .}"
+                                />
+                        </controls:EventCard.GestureRecognizers>
+                    </controls:EventCard>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

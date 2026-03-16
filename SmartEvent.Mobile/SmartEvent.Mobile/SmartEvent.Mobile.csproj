@@ -71,9 +71,11 @@
 		<PackageReference Include="Microsoft.Extensions.Http" Version="10.0.3" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.16.0" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="Core\DTOs\RegistrationDTOs\Requests\" />
 	  <Folder Include="Infrastructure\NativeServices\Geolocation\" />
 	  <Folder Include="Infrastructure\NativeServices\Qr\" />
 	</ItemGroup>

@@ -9,10 +9,12 @@ namespace SmartEvent.Mobile.Infrastructure.Services
     public class AuthService: IAuthService
     {
         private readonly IApiClient _apiClient;
+        private readonly IUserContext _userContext;
 
-        public AuthService(IApiClient apiClient)
+        public AuthService(IApiClient apiClient, IUserContext userContext)
         {
             _apiClient = apiClient;
+            _userContext = userContext;
         }
         public async Task<ApiResult<AuthorizeUserResponseDto>> RegisterAsync(RegisterUserRequestDto dto)
         {
@@ -22,7 +24,10 @@ namespace SmartEvent.Mobile.Infrastructure.Services
 
             if (result.IsSuccess && result.Data != null)
             {
-                await SecureStorage.Default.SetAsync("jwt_token", result.Data.JwtToken);
+                var token = result.Data.JwtToken;
+                
+                await SecureStorage.Default.SetAsync("jwt_token", token);
+                _userContext.SetUser(token);
             }
             
             return result;
@@ -37,7 +42,10 @@ namespace SmartEvent.Mobile.Infrastructure.Services
             if (result.IsSuccess && result.Data != null)
             {
                 //TODO: create service for work with storage
-                await SecureStorage.Default.SetAsync("jwt_token", result.Data.JwtToken);
+                var token = result.Data.JwtToken;
+                
+                await SecureStorage.Default.SetAsync("jwt_token", token);
+                _userContext.SetUser(token);
             }
             
             return result;
