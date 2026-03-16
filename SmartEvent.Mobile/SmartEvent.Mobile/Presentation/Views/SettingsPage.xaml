@@ -21,6 +21,7 @@
             <Picker Style="{StaticResource ThemedPicker}"
                     ItemsSource="{Binding Themes}"
                     SelectedItem="{Binding SelectedTheme}"
+                    ItemDisplayBinding="{Binding Title}"
                     Title="{x:Static res:AppResources.ThemePicker}" />
         </Border>
 

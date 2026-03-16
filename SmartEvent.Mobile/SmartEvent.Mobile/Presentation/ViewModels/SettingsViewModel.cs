@@ -25,7 +25,7 @@ namespace SmartEvent.Mobile.Presentation.ViewModels
             var savedLanguage = Preferences.Get("language", "ru");
             SelectedLanguage = Languages.First(x => x.Code == savedLanguage);
             var savedTheme = Preferences.Get("theme", "System");
-            SelectedTheme = savedTheme;
+            SelectedTheme = Themes.First(x => x.Code == savedTheme);
 
             _isInitialized = true;
         }
@@ -34,7 +34,7 @@ namespace SmartEvent.Mobile.Presentation.ViewModels
         private LanguageItem selectedLanguage;
 
         [ObservableProperty]
-        private string selectedTheme;
+        private ThemeItem selectedTheme;
 
 
         partial void OnSelectedLanguageChanged(LanguageItem value)
@@ -46,12 +46,13 @@ namespace SmartEvent.Mobile.Presentation.ViewModels
 
             Shell.Current.Window?.Page = new AppShell();
         }
-        public List<string> Themes { get; } = new() 
-        { 
-            "System",
-            "Dark",
-            "Light"
+        public List<ThemeItem> Themes { get; } = new()
+        {
+            new ThemeItem { Title = AppResources.ThemeSystem, Code = "System" },
+            new ThemeItem { Title = AppResources.ThemeDark, Code = "Dark" },
+            new ThemeItem { Title = AppResources.ThemeLight, Code = "Light" }
         };
+
         public List<LanguageItem> Languages { get; } = new()
         {
         new LanguageItem { Title = "Русский", Code = "ru" },
@@ -59,11 +60,14 @@ namespace SmartEvent.Mobile.Presentation.ViewModels
         };
 
 
-        partial void OnSelectedThemeChanged(string value)
+        partial void OnSelectedThemeChanged(ThemeItem value)
         {
-            Preferences.Set("theme", value);
-            _themeService.SetTheme(value);
+            if (!_isInitialized) return;
+
+            Preferences.Set("theme", value.Code);
+            _themeService.SetTheme(value.Code);
         }
+
 
 
     }
@@ -73,5 +77,12 @@ namespace SmartEvent.Mobile.Presentation.ViewModels
         public string Title { get; set; }
         public string Code { get; set; }
     }
+
+    public class ThemeItem
+    {
+        public string Title { get; set; }
+        public string Code { get; set; }
+    }
+
 
 }

@@ -197,4 +197,24 @@
     <value>Язык</value>
     <comment>SettingsPage</comment>
   </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Темная</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Светлая</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>Системная</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="LanguageRussian" xml:space="preserve">
+    <value>Русский</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="LanguageEnglish" xml:space="preserve">
+    <value>Английский</value>
+    <comment>SettingsPage</comment>
+  </data>
 </root>
