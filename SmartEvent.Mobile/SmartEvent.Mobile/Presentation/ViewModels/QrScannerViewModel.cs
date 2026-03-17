@@ -8,7 +8,7 @@ namespace SmartEvent.Mobile.Presentation.ViewModels;
 
 public partial class QrScannerViewModel : ObservableObject
 {
-    public event Action<QRCodeScanResult>? OnResult;
+    public event Action<AppResult<string>>? OnResult;
     private bool _isProcessed = false;
 
     [RelayCommand]
@@ -18,7 +18,7 @@ public partial class QrScannerViewModel : ObservableObject
         if (string.IsNullOrWhiteSpace(value) || _isProcessed) return;
 
         _isProcessed = true;
-        OnResult?.Invoke(QRCodeScanResult.Success(value));
+        OnResult?.Invoke(AppResult<string>.Success(value));
 
         await MainThread.InvokeOnMainThreadAsync(async () => {
             await Shell.Current.Navigation.PopAsync();
@@ -30,7 +30,7 @@ public partial class QrScannerViewModel : ObservableObject
         if (!_isProcessed)
         {
             _isProcessed = true;
-            OnResult?.Invoke(QRCodeScanResult.Failure(AppResources.QrScanerCancel));
+            OnResult?.Invoke(AppResult<string>.Failure(AppResources.QrScanerCancel));
         }
     }
 }

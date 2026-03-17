@@ -7,7 +7,7 @@ namespace SmartEvent.Mobile.Core.Interfaces.IServices
 {
     public interface IGeolocationService
     {
-        Task<GeolocationResult> GetCurrentLocation();
+        Task<AppResult<Location>> GetCurrentLocation();
     }
 
 }

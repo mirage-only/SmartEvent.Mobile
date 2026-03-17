@@ -14,14 +14,14 @@ public class QrCodeScannerService : IQrCodeScannerService
         _services = services;
     }
 
-    public async Task<QRCodeScanResult> ScanAsync()
+    public async Task<AppResult<string>> ScanAsync()
     {
-        var tcs = new TaskCompletionSource<QRCodeScanResult>();
+        var tcs = new TaskCompletionSource<AppResult<string>>();
 
         var scannerPage = _services.GetRequiredService<QrScannerPage>();
         var vm = (QrScannerViewModel)scannerPage.BindingContext;
 
-        Action<QRCodeScanResult>? handler = null;
+        Action<AppResult<string>>? handler = null;
         handler = (result) =>
         {
             vm.OnResult -= handler;
