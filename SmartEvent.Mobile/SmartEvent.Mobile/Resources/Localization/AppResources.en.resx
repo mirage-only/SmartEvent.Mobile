@@ -207,4 +207,7 @@
   <data name="GeolocationError" xml:space="preserve">
     <value>Geolocation error</value>
   </data>
+  <data name="QrScanerCancel" xml:space="preserve">
+    <value>Scan cancel</value>
+  </data>
 </root>
