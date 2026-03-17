@@ -4,6 +4,7 @@ using SmartEvent.Mobile.Infrastructure.Api;
 using SmartEvent.Mobile.Infrastructure.Services;
 using SmartEvent.Mobile.Presentation.ViewModels;
 using SmartEvent.Mobile.Presentation.Views;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace SmartEvent.Mobile
 {
@@ -15,6 +16,7 @@ namespace SmartEvent.Mobile
             var services = builder.Services;
             builder
                 .UseMauiApp<App>()
+                .UseSkiaSharp()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

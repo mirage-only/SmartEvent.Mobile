@@ -4,6 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SmartEvent.Mobile.Presentation.Views.EventDetailsPage"
              xmlns:vm="clr-namespace:SmartEvent.Mobile.Presentation.ViewModels"
+             xmlns:mapsui="clr-namespace:Mapsui.UI.Maui;assembly=Mapsui.UI.Maui"
              x:DataType="vm:EventDetailsViewModel"
              Title="EventDetails">
     <Grid>
@@ -15,6 +16,8 @@
                     <RowDefinition Height="Auto"/> <!--Description-->
                     <RowDefinition Height="Auto"/> <!--Date-->
                     <RowDefinition Height="Auto"/> <!--Time-->
+                    <RowDefinition Height="Auto"/> <!--Address + Room--> 
+                    <RowDefinition Height="Auto"/> <!--Map-->
                     <RowDefinition Height="Auto"/> <!--Reg Button-->
                 </Grid.RowDefinitions>
             
@@ -44,7 +47,24 @@
                     </VerticalStackLayout>
                 </HorizontalStackLayout>
                 
-                <Button Grid.Row="5" Text="{Binding ButtonText}"
+                <HorizontalStackLayout Grid.Row="5" Spacing="10">
+                    <Image Source="calendar_image.jpg" WidthRequest="20" HeightRequest="20"/>
+                    <VerticalStackLayout>
+                        <Label Text="Адрес" FontSize="16"/>
+                        <Label Text="{Binding Event.Location.Address}" FontSize="12" TextColor="Gray"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+                
+                <Border Grid.Row="6" StrokeShape="RoundRectangle 15" Padding="0" StrokeThickness="1" Stroke="#DDDDDD">
+                    <mapsui:MapView x:Name="MyMapView"
+                                    HeightRequest="300"
+                                    VerticalOptions="Center" 
+                                    HorizontalOptions="Fill"
+                                    IsMyLocationButtonVisible="False"
+                                    IsZoomButtonVisible="False"/>
+                </Border>
+                
+                <Button Grid.Row="7" Text="{Binding ButtonText}"
                         BackgroundColor="{Binding ButtonColor}"
                         Command="{Binding RegisterCommand}"
                         IsVisible="{Binding IsRegistrationVisible}"
