@@ -237,4 +237,8 @@
     <value>Ошибка геолокации</value>
     <comment>Geolocation</comment>
   </data>
+  <data name="QrScanerCancel" xml:space="preserve">
+    <value>Сканирование отменено</value>
+    <comment>QR</comment>
+  </data>
 </root>

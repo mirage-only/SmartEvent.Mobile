@@ -4,7 +4,9 @@ using SmartEvent.Mobile.Infrastructure.Api;
 using SmartEvent.Mobile.Infrastructure.Services;
 using SmartEvent.Mobile.Presentation.ViewModels;
 using SmartEvent.Mobile.Presentation.Views;
+using ZXing.Net.Maui.Controls;
 using SkiaSharp.Views.Maui.Controls.Hosting;
+
 
 namespace SmartEvent.Mobile
 {
@@ -17,6 +19,7 @@ namespace SmartEvent.Mobile
             builder
                 .UseMauiApp<App>()
                 .UseSkiaSharp()
+                .UseBarcodeReader()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -38,6 +41,7 @@ namespace SmartEvent.Mobile
             services.AddSingleton<IThemeService, ThemeService>();
             services.AddSingleton<IUserContext, UserContext>();
             services.AddSingleton<IGeolocationService, GeolocationService>();
+            services.AddSingleton<IQrCodeScannerService, QrCodeScannerService>();
 
             services.AddTransient<EventsViewModel>();
             services.AddTransient<EventsPage>();
@@ -59,6 +63,10 @@ namespace SmartEvent.Mobile
             
             services.AddTransient<AddEventPage>();
             services.AddTransient<AddEventViewModel>();
+
+            services.AddTransient<QrScannerPage>();
+            services.AddTransient<QrScannerViewModel>();
+
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

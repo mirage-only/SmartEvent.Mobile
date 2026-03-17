@@ -250,6 +250,15 @@ namespace SmartEvent.Mobile.Resources.Localization {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Сканирование отменено.
+        /// </summary>
+        internal static string QrScanerCancel {
+            get {
+                return ResourceManager.GetString("QrScanerCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Зарегистрироваться.
         /// </summary>
         internal static string RegisterButton {
