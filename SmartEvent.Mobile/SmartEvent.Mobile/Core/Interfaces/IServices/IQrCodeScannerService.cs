@@ -7,7 +7,7 @@ namespace SmartEvent.Mobile.Core.Interfaces.IServices
 {
     public interface IQrCodeScannerService
     {
-        Task<QRCodeScanResult> ScanAsync();
+        Task<AppResult<string>> ScanAsync();
     }
 
 }
