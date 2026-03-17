@@ -217,4 +217,24 @@
     <value>Английский</value>
     <comment>SettingsPage</comment>
   </data>
+  <data name="GeolocationErrorNotSupported" xml:space="preserve">
+    <value>Геолокация не поддерживается устройством</value>
+    <comment>Geolocation</comment>
+  </data>
+  <data name="GeolocationErrorDisabledGPS" xml:space="preserve">
+    <value>Геолокация выключена</value>
+    <comment>Geolocation</comment>
+  </data>
+  <data name="GeolocationErrorNoPermission" xml:space="preserve">
+    <value>Нет разрешений на геолокацию</value>
+    <comment>Geolocation</comment>
+  </data>
+  <data name="GeolocationErrorUnableToRetrieve" xml:space="preserve">
+    <value>Не удалось получить координаты</value>
+    <comment>Geolocation</comment>
+  </data>
+  <data name="GeolocationError" xml:space="preserve">
+    <value>Ошибка геолокации</value>
+    <comment>Geolocation</comment>
+  </data>
 </root>

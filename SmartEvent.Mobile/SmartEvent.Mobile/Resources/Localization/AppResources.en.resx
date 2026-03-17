@@ -192,4 +192,19 @@
   <data name="LanguageEnglish" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="GeolocationErrorNotSupported" xml:space="preserve">
+    <value>Geolocation is not supported on this device</value>
+  </data>
+  <data name="GeolocationErrorDisabledGPS" xml:space="preserve">
+    <value>Location services are disabled</value>
+  </data>
+  <data name="GeolocationErrorNoPermission" xml:space="preserve">
+    <value>Location permission is not granted</value>
+  </data>
+  <data name="GeolocationErrorUnableToRetrieve" xml:space="preserve">
+    <value>Unable to retrieve location</value>
+  </data>
+  <data name="GeolocationError" xml:space="preserve">
+    <value>Geolocation error</value>
+  </data>
 </root>
