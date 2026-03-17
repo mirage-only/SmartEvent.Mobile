@@ -97,6 +97,51 @@ namespace SmartEvent.Mobile.Resources.Localization {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Ошибка геолокации.
+        /// </summary>
+        internal static string GeolocationError {
+            get {
+                return ResourceManager.GetString("GeolocationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Геолокация выключена.
+        /// </summary>
+        internal static string GeolocationErrorDisabledGPS {
+            get {
+                return ResourceManager.GetString("GeolocationErrorDisabledGPS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Нет разрешений на геолокацию.
+        /// </summary>
+        internal static string GeolocationErrorNoPermission {
+            get {
+                return ResourceManager.GetString("GeolocationErrorNoPermission", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Геолокация не поддерживается устройством.
+        /// </summary>
+        internal static string GeolocationErrorNotSupported {
+            get {
+                return ResourceManager.GetString("GeolocationErrorNotSupported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Не удалось получить координаты.
+        /// </summary>
+        internal static string GeolocationErrorUnableToRetrieve {
+            get {
+                return ResourceManager.GetString("GeolocationErrorUnableToRetrieve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Английский.
         /// </summary>
         internal static string LanguageEnglish {
