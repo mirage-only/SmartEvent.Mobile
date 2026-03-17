@@ -42,6 +42,7 @@ namespace SmartEvent.Mobile
             services.AddSingleton<IUserContext, UserContext>();
             services.AddSingleton<IGeolocationService, GeolocationService>();
             services.AddSingleton<IQrCodeScannerService, QrCodeScannerService>();
+            services.AddSingleton<IAttendanceService, AttendanceService>();
 
             services.AddTransient<EventsViewModel>();
             services.AddTransient<EventsPage>();
