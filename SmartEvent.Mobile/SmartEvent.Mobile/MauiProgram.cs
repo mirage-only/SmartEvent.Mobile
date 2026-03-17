@@ -35,6 +35,7 @@ namespace SmartEvent.Mobile
             services.AddSingleton<ILocalizationService, LocalizationService>();
             services.AddSingleton<IThemeService, ThemeService>();
             services.AddSingleton<IUserContext, UserContext>();
+            services.AddSingleton<IGeolocationService, GeolocationService>();
 
             services.AddTransient<EventsViewModel>();
             services.AddTransient<EventsPage>();
