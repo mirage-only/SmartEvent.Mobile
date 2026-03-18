@@ -1,4 +1,5 @@
 ﻿using SmartEvent.Mobile.Core.Common;
+using SmartEvent.Mobile.Core.DTOs.EventDTOs.Requests;
 using SmartEvent.Mobile.Core.DTOs.EventDTOs.Responses;
 using SmartEvent.Mobile.Core.Interfaces.IServices;
 using SmartEvent.Mobile.Infrastructure.Api;
@@ -28,6 +29,15 @@ namespace SmartEvent.Mobile.Infrastructure.Services
             string url = $"{ApiRoutes.GetEventDetails}/{id}";
             
             var result = await _apiClient.GetAsync<EventDetailsDto>(url);
+            
+            return result;
+        }
+
+        public async Task<ApiResult<Guid>> AddEvent(AddEventDto addEventDto)
+        {
+            string url = ApiRoutes.AddEvent;
+            
+            var result = await _apiClient.PostAsync<AddEventDto, Guid>(url, addEventDto);
             
             return result;
         }
