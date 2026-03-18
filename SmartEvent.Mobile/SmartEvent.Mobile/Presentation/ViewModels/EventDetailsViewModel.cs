@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using SmartEvent.Mobile.Core.DTOs.EventDTOs.Responses;
 using SmartEvent.Mobile.Core.Interfaces.IServices;
+using SmartEvent.Mobile.Resources.Localization;
 
 namespace SmartEvent.Mobile.Presentation.ViewModels;
 
@@ -20,7 +21,7 @@ public partial class EventDetailsViewModel : ObservableObject
     [ObservableProperty] private bool _isRegistrationVisible = true;
     [ObservableProperty] private bool _isRegistrationEnabled = true;
     
-    [ObservableProperty] private string _buttonText = "Зарегистрироваться";
+    [ObservableProperty] private string _buttonText = AppResources.EventRegistrationButton;
     [ObservableProperty] private string _buttonColor = "#FF0000FF";
 
     public EventDetailsViewModel(IEventService eventService, IRegistrationService registrationService, IUserContext userContext)
@@ -62,7 +63,7 @@ public partial class EventDetailsViewModel : ObservableObject
                     if (responseId != Guid.Empty)
                     {
                         IsRegistrationEnabled = false;
-                        ButtonText = "Вы уже зарегистрированы!";
+                        ButtonText = AppResources.EventRegistrationAlreadyRegistered;
                         ButtonColor = "#FF008000";
                     }
                 }
@@ -77,7 +78,7 @@ public partial class EventDetailsViewModel : ObservableObject
     [RelayCommand]
     private async Task Register()
     {
-        ButtonText = "Ожидание...";
+        ButtonText = AppResources.WaitLabel;
         ButtonColor = "#FFD3D3D3";
 
         try
@@ -86,20 +87,20 @@ public partial class EventDetailsViewModel : ObservableObject
 
             if (result.IsSuccess)
             {
-                ButtonText = "Вы успешно зарегистрированы!";
+                ButtonText = AppResources.EventRegistrationSuccess;
                 ButtonColor = "#FF008000";
                 IsRegistrationEnabled = false;
             }
             else
             {
-                ButtonText = "Ошибка! Попробовать снова.";
+                ButtonText = AppResources.EventRegistrationError;
                 ButtonColor = "#FFFF0000";
             }
         }
         catch(Exception exception)
         {
             Console.WriteLine(exception);
-            ButtonText = "Ошибка! Попробовать снова.";
+            ButtonText = AppResources.EventRegistrationError;
             ButtonColor = "#FFFF0000";
         }
     } 
