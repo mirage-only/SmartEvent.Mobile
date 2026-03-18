@@ -241,4 +241,56 @@
     <value>Сканирование отменено</value>
     <comment>QR</comment>
   </data>
+  <data name="HttpErrorNetwork" xml:space="preserve">
+    <value>Ошибка сети</value>
+    <comment>Http</comment>
+  </data>
+  <data name="HttpErrorServerSleeping" xml:space="preserve">
+    <value>Сервер не доступен</value>
+    <comment>Http</comment>
+  </data>
+  <data name="HttpErrorBadRequest" xml:space="preserve">
+    <value>Неверный запрос</value>
+    <comment>Http</comment>
+  </data>
+  <data name="HttpError" xml:space="preserve">
+    <value>Неизвестная ошибка, попробуйте позже</value>
+    <comment>Http</comment>
+  </data>
+  <data name="EventRegistrationButton" xml:space="preserve">
+    <value>Зарегистрироваться</value>
+    <comment>EventDetailsPage</comment>
+  </data>
+  <data name="EventRegistrationAlreadyRegistered" xml:space="preserve">
+    <value>Уже зарегистрирован</value>
+    <comment>EventDetailsPage</comment>
+  </data>
+  <data name="EventRegistrationSuccess" xml:space="preserve">
+    <value>Успешная регистрация</value>
+    <comment>EventDetailsPage</comment>
+  </data>
+  <data name="EventRegistrationError" xml:space="preserve">
+    <value>Ошибка, попробуйте снова</value>
+    <comment>EventDetailsPage</comment>
+  </data>
+  <data name="WaitLabel" xml:space="preserve">
+    <value>Ожидание...</value>
+    <comment>EventDetailsPage</comment>
+  </data>
+  <data name="RegistrationPageErrorDifferentPasswords" xml:space="preserve">
+    <value>Несовпадение паролей</value>
+    <comment>RegistrationPage</comment>
+  </data>
+  <data name="RegistrationPageErrorNotAllFields" xml:space="preserve">
+    <value>Заполните все поля</value>
+    <comment>RegistrationPage</comment>
+  </data>
+  <data name="RegistrationPageErrorShortPassword" xml:space="preserve">
+    <value>Пароль меньше 6 символов</value>
+    <comment>RegistrationPage</comment>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Ошибка</value>
+    <comment>RegistrationPage</comment>
+  </data>
 </root>
