@@ -10,5 +10,6 @@ public partial class AppShell : Shell
         InitializeComponent();
         
         Routing.RegisterRoute(nameof(EventDetailsPage), typeof(EventDetailsPage));
+        Routing.RegisterRoute(nameof(AddEventPage), typeof(AddEventPage));
     }
 }

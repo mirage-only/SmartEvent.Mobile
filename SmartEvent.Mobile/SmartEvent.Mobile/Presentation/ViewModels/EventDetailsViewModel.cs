@@ -1,7 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Mapsui.Tiling;
-using Mapsui.Extensions;
 using SmartEvent.Mobile.Core.DTOs.EventDTOs.Responses;
 using SmartEvent.Mobile.Core.Interfaces.IServices;
 using SmartEvent.Mobile.Resources.Localization;

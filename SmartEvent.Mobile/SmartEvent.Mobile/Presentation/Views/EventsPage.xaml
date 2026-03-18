@@ -21,11 +21,7 @@
 
         <VerticalStackLayout Grid.Row="0"
                              Spacing="10">
-
-            <!-- TODO: searchbar here -->
-
-        </VerticalStackLayout>
-
+            </VerticalStackLayout>
 
         <CollectionView Grid.Row="1"
                         ItemsSource="{Binding Events}"
@@ -40,14 +36,29 @@
                     <controls:EventCard>
                         <controls:EventCard.GestureRecognizers>
                             <TapGestureRecognizer
-                                Command="{Binding Source = {RelativeSource AncestorType={x:Type vm:EventsViewModel}}, Path=GoToDetailsCommand}"
-                                CommandParameter="{Binding .}"
-                                />
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:EventsViewModel}}, Path=GoToDetailsCommand}"
+                                CommandParameter="{Binding .}" />
                         </controls:EventCard.GestureRecognizers>
                     </controls:EventCard>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
+        <Button Grid.Row="1"
+                Text="+"
+                FontSize="28"
+                FontAttributes="Bold"
+                TextColor="White"
+                BackgroundColor="{StaticResource Primary}"
+                HeightRequest="60"
+                WidthRequest="60"
+                CornerRadius="30" 
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Margin="0,0,10,10"
+                Shadow="{Shadow Brush=Black, Offset='0,5', Radius=10, Opacity=0.3}"
+                Command="{Binding GoToAddEventCommand}"
+                IsVisible="{Binding IsAddEventButtonVisible}"/>
 
     </Grid>
 </ContentPage>

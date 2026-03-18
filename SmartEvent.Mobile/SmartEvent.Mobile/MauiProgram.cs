@@ -61,6 +61,9 @@ namespace SmartEvent.Mobile
 
             services.AddTransient<AccountPage>();
             services.AddTransient<AccountViewModel>();
+            
+            services.AddTransient<AddEventPage>();
+            services.AddTransient<AddEventViewModel>();
 
             services.AddTransient<QrScannerPage>();
             services.AddTransient<QrScannerViewModel>();
