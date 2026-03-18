@@ -73,15 +73,15 @@
             </Grid>
         </ScrollView>
         
+        <BoxView Color="{AppThemeBinding Light=White,Dark=Black}"
+                 Opacity="0.6"
+                 IsVisible="{Binding IsBusy}"/>
+        
         <ActivityIndicator
             IsRunning="{Binding IsBusy}"
             IsVisible="{Binding IsBusy}"
             VerticalOptions="Center"
             HorizontalOptions="Center"
             Color="{StaticResource Primary}"/>
-            
-        <BoxView Color="{AppThemeBinding Light=White,Dark=Black}"
-                 Opacity="0.6"
-                 IsVisible="{Binding IsBusy}"/>
     </Grid>
 </ContentPage>
