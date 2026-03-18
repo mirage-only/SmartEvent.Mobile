@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using SmartEvent.Mobile.Core.Interfaces.IServices;
+using SmartEvent.Mobile.Resources.Localization;
 
 namespace SmartEvent.Mobile.Presentation.ViewModels
 {
@@ -30,7 +31,7 @@ namespace SmartEvent.Mobile.Presentation.ViewModels
         {
             if (Password != ConfirmPassword)
             {
-                await Shell.Current.DisplayAlertAsync("Error", "passwords are different", "OK");
+                await Shell.Current.DisplayAlertAsync(AppResources.Error, AppResources.RegistrationPageErrorDifferentPasswords, "OK");
                 return;
             }
 
@@ -39,13 +40,13 @@ namespace SmartEvent.Mobile.Presentation.ViewModels
                 string.IsNullOrWhiteSpace(Firstname) ||
                 string.IsNullOrWhiteSpace(Lastname))
             {
-                await Shell.Current.DisplayAlertAsync("Error", "Please, fill all fields", "OK");
+                await Shell.Current.DisplayAlertAsync(AppResources.Error, AppResources.RegistrationPageErrorNotAllFields, "OK");
                 return;
             }
 
             if (Password.Length < 6)
             {
-                await Shell.Current.DisplayAlertAsync("Error", "Password is less than 6 symbols", "OK");
+                await Shell.Current.DisplayAlertAsync(AppResources.Error, AppResources.RegistrationPageErrorShortPassword, "OK");
                 return;
             }
             
@@ -59,7 +60,7 @@ namespace SmartEvent.Mobile.Presentation.ViewModels
             }
             else
             {
-                Application.Current?.MainPage?.DisplayAlert("Oops...", result.Error, "OK");
+                Application.Current?.MainPage?.DisplayAlert(AppResources.Error, result.Error, "OK");
             }
         }
 

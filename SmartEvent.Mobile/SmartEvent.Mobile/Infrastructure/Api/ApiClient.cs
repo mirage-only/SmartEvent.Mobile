@@ -3,6 +3,7 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using SmartEvent.Mobile.Core.Common;
+using SmartEvent.Mobile.Resources.Localization;
 
 
 namespace SmartEvent.Mobile.Infrastructure.Api;
@@ -52,16 +53,16 @@ public class ApiClient(HttpClient httpClient) : IApiClient
         }
         catch (HttpRequestException)
         {
-            return ApiResult<TResponse>.Failure("Network error", (int)HttpStatusCode.BadRequest, null);
+            return ApiResult<TResponse>.Failure(AppResources.HttpErrorNetwork, (int)HttpStatusCode.BadRequest, null);
         }
         catch (TaskCanceledException)
         {
-            return ApiResult<TResponse>.Failure("Network error", (int)HttpStatusCode.RequestTimeout, null);
+            return ApiResult<TResponse>.Failure(AppResources.HttpErrorNetwork, (int)HttpStatusCode.RequestTimeout, null);
         }
         catch (Exception exception)
         {
             Console.WriteLine(exception);
-            return ApiResult<TResponse>.Failure("Server is sleeping", (int)HttpStatusCode.InternalServerError, null);
+            return ApiResult<TResponse>.Failure(AppResources.HttpErrorServerSleeping, (int)HttpStatusCode.InternalServerError, null);
         }
     }
 
@@ -81,9 +82,9 @@ public class ApiClient(HttpClient httpClient) : IApiClient
         }
         catch (JsonException)
         {
-            return ApiResult<T>.Failure("Bad request format!", (int)HttpStatusCode.BadRequest, null);
+            return ApiResult<T>.Failure(AppResources.HttpErrorBadRequest, (int)HttpStatusCode.BadRequest, null);
         }
             
-        return ApiResult<T>.Failure("Unknown server error! Try later)", (int)HttpStatusCode.InternalServerError, null);
+        return ApiResult<T>.Failure(AppResources.HttpError, (int)HttpStatusCode.InternalServerError, null);
     }
 }

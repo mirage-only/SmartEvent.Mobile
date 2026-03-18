@@ -17,7 +17,7 @@ namespace SmartEvent.Mobile.Infrastructure.Services
             _apiClient = apiClient;
         }
         
-        public async Task<GeolocationResult> GetCurrentLocation()
+        public async Task<AppResult<Location>> GetCurrentLocation()
         {
             try
             {
@@ -28,25 +28,25 @@ namespace SmartEvent.Mobile.Infrastructure.Services
                 var location = await Geolocation.GetLocationAsync(request);
 
                 if (location == null)
-                    return GeolocationResult.Failure(AppResources.GeolocationErrorUnableToRetrieve);
+                    return AppResult<Location>.Failure(AppResources.GeolocationErrorUnableToRetrieve);
 
-                return GeolocationResult.Success(location);
+                return AppResult<Location>.Success(location);
             }
             catch (FeatureNotSupportedException)
             {
-                return GeolocationResult.Failure(AppResources.GeolocationErrorNotSupported);
+                return AppResult<Location>.Failure(AppResources.GeolocationErrorNotSupported);
             }
             catch (FeatureNotEnabledException)
             {
-                return GeolocationResult.Failure(AppResources.GeolocationErrorDisabledGPS);
+                return AppResult<Location>.Failure(AppResources.GeolocationErrorDisabledGPS);
             }
             catch (PermissionException)
             {
-                return GeolocationResult.Failure(AppResources.GeolocationErrorNoPermission);
+                return AppResult<Location>.Failure(AppResources.GeolocationErrorNoPermission);
             }
             catch (Exception ex)
             {
-                return GeolocationResult.Failure(AppResources.GeolocationError + " " + ex.Message);
+                return AppResult<Location>.Failure(AppResources.GeolocationError + " " + ex.Message);
             }
         }
 

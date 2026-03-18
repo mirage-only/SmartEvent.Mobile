@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <ResourceDictionary 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI">
 
     <!-- ========================= -->
     <!--      ENTRY (TEXT FIELD)   -->
@@ -157,5 +158,25 @@
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="TextColor" Value="{DynamicResource PrimaryButtonBackground}" />
     </Style>
+
+    <!-- ========================= -->
+    <!--     QR SCANNER STYLES     -->
+    <!-- ========================= -->
+
+    <Style x:Key="QrCameraStyle" TargetType="zxing:CameraBarcodeReaderView">
+        <Setter Property="HorizontalOptions" Value="Fill" />
+        <Setter Property="VerticalOptions" Value="Fill" />
+    </Style>
+
+    <Style x:Key="QrScannerFrameStyle" TargetType="Border">
+        <Setter Property="Stroke" Value="White" />
+        <Setter Property="StrokeThickness" Value="2" />
+        <Setter Property="WidthRequest" Value="250" />
+        <Setter Property="HeightRequest" Value="250" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="BackgroundColor" Value="#00FFFFFF" />
+    </Style>
+
 
 </ResourceDictionary>
