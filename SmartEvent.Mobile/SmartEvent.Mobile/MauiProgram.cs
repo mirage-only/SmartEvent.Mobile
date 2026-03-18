@@ -57,6 +57,8 @@ namespace SmartEvent.Mobile
             services.AddTransient<AccountPage>();
             services.AddTransient<AccountViewModel>();
             
+            services.AddTransient<AddEventPage>();
+            services.AddTransient<AddEventViewModel>();
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
