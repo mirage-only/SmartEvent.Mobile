@@ -4,6 +4,7 @@ using SmartEvent.Mobile.Core.DTOs.EventDTOs.Responses;
 using SmartEvent.Mobile.Core.Interfaces.IServices;
 using SmartEvent.Mobile.Presentation.Views;
 using SmartEvent.Mobile.Resources.Localization;
+using SmartEvent.Mobile.Core.Common;
 
 namespace SmartEvent.Mobile.Presentation.ViewModels;
 
@@ -26,6 +27,7 @@ public partial class EventDetailsViewModel : ObservableObject
     [ObservableProperty] private bool _isRegistrationEnabled = true;
     [ObservableProperty] private bool _isAttendEnabled = true;
     [ObservableProperty] private bool _isAttendVisible = false;
+    [ObservableProperty] private bool _isParticipantsVisible = true;
 
     [ObservableProperty] private string _buttonText = AppResources.EventRegistrationButton;
     [ObservableProperty] private string _buttonColor = "#FF0000FF";
@@ -57,6 +59,11 @@ public partial class EventDetailsViewModel : ObservableObject
         try
         {
             IsBusy = true;
+
+            if (_userContext.UserRole == UserRole.Student)
+            {
+                IsParticipantsVisible = false;
+            }
 
             var result = await _eventService.GetEventDetails(id);
 
