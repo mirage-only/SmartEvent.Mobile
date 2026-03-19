@@ -1,10 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using SmartEvent.Mobile.Core.Common;
 using SmartEvent.Mobile.Core.DTOs.EventDTOs.Responses;
 using SmartEvent.Mobile.Core.Interfaces.IServices;
 using SmartEvent.Mobile.Presentation.Views;
 using SmartEvent.Mobile.Resources.Localization;
-using SmartEvent.Mobile.Core.Common;
 
 namespace SmartEvent.Mobile.Presentation.ViewModels;
 
@@ -28,6 +28,7 @@ public partial class EventDetailsViewModel : ObservableObject
     [ObservableProperty] private bool _isAttendEnabled = true;
     [ObservableProperty] private bool _isAttendVisible = false;
     [ObservableProperty] private bool _isParticipantsVisible = true;
+    [ObservableProperty] private bool _isQrCodePageVisible = true;
 
     [ObservableProperty] private string _buttonText = AppResources.EventRegistrationButton;
     [ObservableProperty] private string _buttonColor = "#FF0000FF";
@@ -63,6 +64,7 @@ public partial class EventDetailsViewModel : ObservableObject
             if (_userContext.UserRole == UserRole.Student)
             {
                 IsParticipantsVisible = false;
+                IsQrCodePageVisible = false;
             }
 
             var result = await _eventService.GetEventDetails(id);
@@ -86,7 +88,7 @@ public partial class EventDetailsViewModel : ObservableObject
                     {
                         IsAttendEnabled = false;
                         IsRegistrationVisible = false;
-                        AttendButtonText = "посещено";
+                        AttendButtonText = AppResources.AlreadyAttended;
                     }
                 }
                 if (checkerForRegistered.IsSuccess)
@@ -191,6 +193,17 @@ public partial class EventDetailsViewModel : ObservableObject
         };
 
         await Shell.Current.GoToAsync(nameof(ParticipantsPage), navParams);
+    }
+
+    [RelayCommand]
+    private async Task OpenQrGenerator()
+    {
+        var navParams = new Dictionary<string, object>
+        {
+            { "EventId", EventIdString }
+        };
+
+        await Shell.Current.GoToAsync(nameof(EventQrCodePage), navParams);
     }
 
 

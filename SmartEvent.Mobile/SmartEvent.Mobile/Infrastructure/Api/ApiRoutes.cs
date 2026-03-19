@@ -29,4 +29,10 @@ public static class ApiRoutes
     private const string ParticipantUrl = $"{BaseUrl}/participants";
     public static readonly string EventParticipants = $"{ParticipantUrl}/get";
 
+    private const string EventQrCodeUrl = $"{BaseUrl}/eventQr";
+    public static readonly string EventQrCodeStartSession = $"{EventQrCodeUrl}/startSession";
+    public static readonly string EventQrCodeStopSession = $"{EventQrCodeUrl}/stopSession";
+    public static readonly string EventQrCodeGetCurrent = $"{EventQrCodeUrl}/get";
+
+
 }

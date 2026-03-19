@@ -43,6 +43,7 @@ namespace SmartEvent.Mobile
             services.AddSingleton<IGeolocationService, GeolocationService>();
             services.AddSingleton<IAttendanceService, AttendanceService>();
             services.AddSingleton<IParticipantService, ParticipantService>();
+            services.AddSingleton<IQrGeneratorService, QrGeneratorService>();
 
             services.AddTransient<EventsViewModel>();
             services.AddTransient<EventsPage>();
@@ -70,6 +71,8 @@ namespace SmartEvent.Mobile
             services.AddTransient<ParticipantsPage>();
             services.AddTransient<ParticipantsViewModel>();
 
+            services.AddTransient<EventQrCodePage>();
+            services.AddTransient<EventQrGeneratorViewModel>();
 
 #if DEBUG
             builder.Logging.AddDebug();

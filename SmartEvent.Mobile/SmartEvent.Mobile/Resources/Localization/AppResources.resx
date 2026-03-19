@@ -316,4 +316,28 @@
   <data name="Participants" xml:space="preserve">
     <value>Участники</value>
   </data>
+  <data name="QrGeneratorTitle" xml:space="preserve">
+    <value>Контроль входа</value>
+  </data>
+  <data name="StartRegistration" xml:space="preserve">
+    <value>Начать регистрацию</value>
+  </data>
+  <data name="StopRegistration" xml:space="preserve">
+    <value>Закончить регистрацию</value>
+  </data>
+  <data name="ScanToCheckIn" xml:space="preserve">
+    <value>Сканируйте для подтверждения</value>
+  </data>
+  <data name="SessionInactive" xml:space="preserve">
+    <value>Регистрация закрыта</value>
+  </data>
+  <data name="QrCodeChangeAutomatic" xml:space="preserve">
+    <value>Код обновляется автоматически</value>
+  </data>
+  <data name="VerificationControl" xml:space="preserve">
+    <value>Управление QR</value>
+  </data>
+  <data name="AlreadyAttended" xml:space="preserve">
+    <value>Посещено</value>
+  </data>
 </root>
