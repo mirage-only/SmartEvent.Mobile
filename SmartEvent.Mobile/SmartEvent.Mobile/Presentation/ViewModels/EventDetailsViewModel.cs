@@ -24,7 +24,9 @@ public partial class EventDetailsViewModel : ObservableObject
     [ObservableProperty] private bool _isBusy;
     [ObservableProperty] private bool _isRegistrationVisible = true;
     [ObservableProperty] private bool _isRegistrationEnabled = true;
-    
+    [ObservableProperty] private bool _isAttendEnabled = true;
+    [ObservableProperty] private bool _isAttendVisible = false;
+
     [ObservableProperty] private string _buttonText = AppResources.EventRegistrationButton;
     [ObservableProperty] private string _buttonColor = "#FF0000FF";
 
@@ -62,19 +64,36 @@ public partial class EventDetailsViewModel : ObservableObject
             {
                 Event = result.Data;
 
-                if (Event.CreatorId == _userContext.UserId) IsRegistrationVisible = false;
+                if (Event.CreatorId == _userContext.UserId)
+                {
+                    IsRegistrationVisible = false;
+                    IsAttendVisible = false;
+                }
                 
                 var checkerForRegistered = await _registrationService.IsRegistrationExist(Event.Id);
+                var checkerForAttended = await _attendanceService.IsAttendanceExist(Event.Id);
+                if (checkerForAttended.IsSuccess)
+                {
+                    var responceId = checkerForAttended.Data;
+                    if (responceId != Guid.Empty)
+                    {
+                        IsAttendEnabled = false;
+                        IsRegistrationVisible = false;
+                        AttendButtonText = "посещено";
+                    }
+                }
                 if (checkerForRegistered.IsSuccess)
                 {
                     var responseId = checkerForRegistered.Data;
                     if (responseId != Guid.Empty)
                     {
                         IsRegistrationEnabled = false;
+                        IsAttendVisible = true;
                         ButtonText = AppResources.EventRegistrationAlreadyRegistered;
                         ButtonColor = "#FF008000";
                     }
                 }
+
             }
         }
         finally
@@ -133,6 +152,9 @@ public partial class EventDetailsViewModel : ObservableObject
             var result = await _attendanceService.ConfirmAsync(EventId, code);
             if (result.IsSuccess)
             {
+                IsAttendEnabled = false;
+                AttendButtonText = "Посещено";
+                IsRegistrationVisible = false;
                 await Shell.Current.DisplayAlertAsync(
                     AppResources.Success,
                     AppResources.AttendSuccess,

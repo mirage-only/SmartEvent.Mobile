@@ -43,6 +43,14 @@ namespace SmartEvent.Mobile.Infrastructure.Services
             var url = $"{ApiRoutes.EventAttendanceUrl}/{eventId}";
             return await _api.PostAsync<AttendanceConfirmRequestDto, AttendanceConfirmResponseDto>(url, dto);
         }
+
+        public Task<ApiResult<Guid>> IsAttendanceExist(Guid eventId)
+        {
+            string url = $"{ApiRoutes.IsAttendanceExistUrl}/{eventId}";
+            var responce = _api.GetAsync<Guid>(url);
+
+            return responce;
+        }
     }
 
 }

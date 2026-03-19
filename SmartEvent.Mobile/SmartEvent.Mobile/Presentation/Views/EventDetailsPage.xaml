@@ -76,6 +76,8 @@
                         Text="{Binding AttendButtonText}"
                         Command="{Binding OpenScannerCommand}" 
                         BackgroundColor="{Binding AttendButtonColor}"
+                        IsVisible="{Binding IsAttendVisible}"
+                        IsEnabled="{Binding IsAttendEnabled}"
                         TextColor="White"
                         CornerRadius="10"
                         Margin="0,10,0,0"/>
