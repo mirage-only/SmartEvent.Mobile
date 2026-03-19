@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using SmartEvent.Mobile.Core.DTOs.EventDTOs.Responses;
 using SmartEvent.Mobile.Core.Interfaces.IServices;
+using SmartEvent.Mobile.Presentation.Views;
 using SmartEvent.Mobile.Resources.Localization;
 
 namespace SmartEvent.Mobile.Presentation.ViewModels;
@@ -12,6 +13,9 @@ public partial class EventDetailsViewModel : ObservableObject
     private readonly IEventService _eventService;
     private readonly IRegistrationService _registrationService;
     private readonly IUserContext _userContext;
+    private readonly IAttendanceService _attendanceService;
+
+    [ObservableProperty] private bool _isScanning = true;
 
     [ObservableProperty] private string _eventIdString;
     [ObservableProperty] private Guid _eventId;
@@ -24,11 +28,15 @@ public partial class EventDetailsViewModel : ObservableObject
     [ObservableProperty] private string _buttonText = AppResources.EventRegistrationButton;
     [ObservableProperty] private string _buttonColor = "#FF0000FF";
 
-    public EventDetailsViewModel(IEventService eventService, IRegistrationService registrationService, IUserContext userContext)
+    [ObservableProperty] private string _attendButtonText = AppResources.EventAttendButton;
+    [ObservableProperty] private string _attendbuttonColor = "#FF0000FF";
+
+    public EventDetailsViewModel(IEventService eventService, IRegistrationService registrationService, IUserContext userContext, IAttendanceService attendanceService)
     {
         _eventService = eventService;
         _registrationService = registrationService;
         _userContext = userContext;
+        _attendanceService = attendanceService;
     }
 
     partial void OnEventIdStringChanged(string value)
@@ -103,5 +111,46 @@ public partial class EventDetailsViewModel : ObservableObject
             ButtonText = AppResources.EventRegistrationError;
             ButtonColor = "#FFFF0000";
         }
-    } 
+    }
+
+    [RelayCommand]
+    private async Task OpenScanner()
+    {
+        var navigationParameters = new Dictionary<string, object>
+        {
+            { "ResultCommand", BarcodeDetectedCommand }
+        };
+        await Shell.Current.GoToAsync(nameof(QrScannerPage), navigationParameters);
+    }
+
+    [RelayCommand]
+    private async Task OnBarcodeDetected(string code)
+    {
+        await Shell.Current.GoToAsync("..");
+        _isScanning = false;
+        try
+        {
+            var result = await _attendanceService.ConfirmAsync(EventId, code);
+            if (result.IsSuccess)
+            {
+                await Shell.Current.DisplayAlertAsync(
+                    AppResources.Success,
+                    AppResources.AttendSuccess,
+                    "OK");
+            }
+            else
+            {
+                await Shell.Current.DisplayAlertAsync(
+                    AppResources.Error,
+                    result.Error ?? AppResources.Error,
+                    "OK");
+            }
+        }
+        catch
+        {
+            await Shell.Current.DisplayAlertAsync(AppResources.Error, AppResources.Error, "OK");
+        }
+
+    }
+
 }

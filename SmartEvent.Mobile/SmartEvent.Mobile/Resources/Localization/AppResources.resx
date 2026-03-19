@@ -293,4 +293,18 @@
     <value>Ошибка</value>
     <comment>RegistrationPage</comment>
   </data>
+  <data name="EventAttendButton" xml:space="preserve">
+    <value>Отметить присутствие</value>
+    <comment>EventDetailsPage</comment>
+  </data>
+  <data name="CameraErrorNoPermission" xml:space="preserve">
+    <value>Нет разрешений на камеру</value>
+    <comment>EventDetailsPage</comment>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Успешно</value>
+  </data>
+  <data name="AttendSuccess" xml:space="preserve">
+    <value>Присутствие подтверждено</value>
+  </data>
 </root>

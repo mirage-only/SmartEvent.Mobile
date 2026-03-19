@@ -21,5 +21,10 @@ public static class ApiRoutes
     
     private const string LocationUrl =  $"{BaseUrl}/location";
     public static readonly string GetEventLocationByAddress =  $"{LocationUrl}/getEventLocationByAddress";
-    
+
+    private const string AttendanceUrl = $"{BaseUrl}/attendance";
+    public static readonly string EventAttendanceUrl = $"{AttendanceUrl}/attendEvent";
+    public static readonly string IsAttendanceExistUrl = $"{AttendanceUrl}/isAttendanceExist";
+
+
 }

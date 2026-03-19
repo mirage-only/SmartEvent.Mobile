@@ -8,7 +8,7 @@ namespace SmartEvent.Mobile.Core.Interfaces.IServices
 {
     public interface IAttendanceService
     {
-        Task<ApiResult<AttendanceConfirmResponseDto>> ConfirmAsync(Guid eventId);
+        Task<ApiResult<AttendanceConfirmResponseDto>> ConfirmAsync(Guid eventId, string qrCode);
     }
 
 }

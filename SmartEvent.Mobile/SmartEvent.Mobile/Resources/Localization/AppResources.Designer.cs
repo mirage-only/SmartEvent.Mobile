@@ -70,6 +70,24 @@ namespace SmartEvent.Mobile.Resources.Localization {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Присутствие подтверждено.
+        /// </summary>
+        internal static string AttendSuccess {
+            get {
+                return ResourceManager.GetString("AttendSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Нет разрешений на камеру.
+        /// </summary>
+        internal static string CameraErrorNoPermission {
+            get {
+                return ResourceManager.GetString("CameraErrorNoPermission", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Почта.
         /// </summary>
         internal static string Email {
@@ -84,6 +102,15 @@ namespace SmartEvent.Mobile.Resources.Localization {
         internal static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Отметить присутствие.
+        /// </summary>
+        internal static string EventAttendButton {
+            get {
+                return ResourceManager.GetString("EventAttendButton", resourceCulture);
             }
         }
         
@@ -408,6 +435,15 @@ namespace SmartEvent.Mobile.Resources.Localization {
         internal static string SettingsPage {
             get {
                 return ResourceManager.GetString("SettingsPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Успешно.
+        /// </summary>
+        internal static string Success {
+            get {
+                return ResourceManager.GetString("Success", resourceCulture);
             }
         }
         

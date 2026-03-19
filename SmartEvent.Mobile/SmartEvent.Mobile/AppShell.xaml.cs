@@ -11,5 +11,6 @@ public partial class AppShell : Shell
         
         Routing.RegisterRoute(nameof(EventDetailsPage), typeof(EventDetailsPage));
         Routing.RegisterRoute(nameof(AddEventPage), typeof(AddEventPage));
+        Routing.RegisterRoute(nameof(QrScannerPage), typeof(QrScannerPage));
     }
 }

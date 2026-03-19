@@ -41,7 +41,6 @@ namespace SmartEvent.Mobile
             services.AddSingleton<IThemeService, ThemeService>();
             services.AddSingleton<IUserContext, UserContext>();
             services.AddSingleton<IGeolocationService, GeolocationService>();
-            services.AddSingleton<IQrCodeScannerService, QrCodeScannerService>();
             services.AddSingleton<IAttendanceService, AttendanceService>();
 
             services.AddTransient<EventsViewModel>();
@@ -66,7 +65,6 @@ namespace SmartEvent.Mobile
             services.AddTransient<AddEventViewModel>();
 
             services.AddTransient<QrScannerPage>();
-            services.AddTransient<QrScannerViewModel>();
 
 #if DEBUG
             builder.Logging.AddDebug();
