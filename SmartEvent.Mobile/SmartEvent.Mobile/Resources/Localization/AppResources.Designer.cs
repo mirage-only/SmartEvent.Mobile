@@ -61,11 +61,29 @@ namespace SmartEvent.Mobile.Resources.Localization {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Посещено.
+        ///   Ищет локализованную строку, похожую на Посетили.
         /// </summary>
         internal static string Attended {
             get {
                 return ResourceManager.GetString("Attended", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Присутствие подтверждено.
+        /// </summary>
+        internal static string AttendSuccess {
+            get {
+                return ResourceManager.GetString("AttendSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Нет разрешений на камеру.
+        /// </summary>
+        internal static string CameraErrorNoPermission {
+            get {
+                return ResourceManager.GetString("CameraErrorNoPermission", resourceCulture);
             }
         }
         
@@ -79,11 +97,29 @@ namespace SmartEvent.Mobile.Resources.Localization {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Список участников пуст.
+        /// </summary>
+        internal static string EmptyParticipantsList {
+            get {
+                return ResourceManager.GetString("EmptyParticipantsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Ошибка.
         /// </summary>
         internal static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Отметить присутствие.
+        /// </summary>
+        internal static string EventAttendButton {
+            get {
+                return ResourceManager.GetString("EventAttendButton", resourceCulture);
             }
         }
         
@@ -304,6 +340,24 @@ namespace SmartEvent.Mobile.Resources.Localization {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Участники.
+        /// </summary>
+        internal static string Participants {
+            get {
+                return ResourceManager.GetString("Participants", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Участники.
+        /// </summary>
+        internal static string ParticipantsTitle {
+            get {
+                return ResourceManager.GetString("ParticipantsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Пароль.
         /// </summary>
         internal static string Password {
@@ -349,7 +403,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Зарегистрировано.
+        ///   Ищет локализованную строку, похожую на Зарегистрированы.
         /// </summary>
         internal static string Registered {
             get {
@@ -408,6 +462,15 @@ namespace SmartEvent.Mobile.Resources.Localization {
         internal static string SettingsPage {
             get {
                 return ResourceManager.GetString("SettingsPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Успешно.
+        /// </summary>
+        internal static string Success {
+            get {
+                return ResourceManager.GetString("Success", resourceCulture);
             }
         }
         

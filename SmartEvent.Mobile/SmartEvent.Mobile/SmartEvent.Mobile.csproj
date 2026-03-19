@@ -73,11 +73,11 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
 		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.16.0" />
-		<PackageReference Include="ZXing.Net.Maui" Version="0.7.4" />
 		<PackageReference Include="ZXing.Net.Maui.Controls" Version="0.7.4" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="Core\DTOs\ParticipantDTOs\Requests\" />
 	  <Folder Include="Core\DTOs\RegistrationDTOs\Requests\" />
 	  <Folder Include="Infrastructure\NativeServices\Geolocation\" />
 	  <Folder Include="Infrastructure\NativeServices\Qr\" />
@@ -136,6 +136,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Presentation\Views\LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Presentation\Views\ParticipantsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Presentation\Views\QrScannerPage.xaml">

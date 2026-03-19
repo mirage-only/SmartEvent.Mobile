@@ -249,4 +249,25 @@
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="EventAttendButton" xml:space="preserve">
+    <value>Attend verification</value>
+  </data>
+  <data name="CameraErrorNoPermission" xml:space="preserve">
+    <value>Camera permission is not granted</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="AttendSuccess" xml:space="preserve">
+    <value>Attend success</value>
+  </data>
+  <data name="ParticipantsTitle" xml:space="preserve">
+    <value>Participants</value>
+  </data>
+  <data name="EmptyParticipantsList" xml:space="preserve">
+    <value>Empty participants list</value>
+  </data>
+  <data name="Participants" xml:space="preserve">
+    <value>Participants</value>
+  </data>
 </root>
