@@ -40,7 +40,7 @@ namespace SmartEvent.Mobile.Infrastructure.Services
             );
             
 
-            var url = ApiRoutes.EventAttendanceUrl;
+            var url = $"{ApiRoutes.EventAttendanceUrl}/{eventId}";
             return await _api.PostAsync<AttendanceConfirmRequestDto, AttendanceConfirmResponseDto>(url, dto);
         }
     }
