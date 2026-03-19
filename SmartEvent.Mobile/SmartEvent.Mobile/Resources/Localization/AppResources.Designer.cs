@@ -22,7 +22,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class AppResources {
+    public class AppResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         ///   Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SmartEvent.Mobile.Resources.Localization.AppResources", typeof(AppResources).Assembly);
@@ -51,7 +51,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         ///   обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,9 +61,18 @@ namespace SmartEvent.Mobile.Resources.Localization {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Посещено.
+        /// </summary>
+        public static string AlreadyAttended {
+            get {
+                return ResourceManager.GetString("AlreadyAttended", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Посетили.
         /// </summary>
-        internal static string Attended {
+        public static string Attended {
             get {
                 return ResourceManager.GetString("Attended", resourceCulture);
             }
@@ -72,7 +81,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Присутствие подтверждено.
         /// </summary>
-        internal static string AttendSuccess {
+        public static string AttendSuccess {
             get {
                 return ResourceManager.GetString("AttendSuccess", resourceCulture);
             }
@@ -81,7 +90,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Нет разрешений на камеру.
         /// </summary>
-        internal static string CameraErrorNoPermission {
+        public static string CameraErrorNoPermission {
             get {
                 return ResourceManager.GetString("CameraErrorNoPermission", resourceCulture);
             }
@@ -90,7 +99,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Почта.
         /// </summary>
-        internal static string Email {
+        public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
             }
@@ -99,7 +108,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Список участников пуст.
         /// </summary>
-        internal static string EmptyParticipantsList {
+        public static string EmptyParticipantsList {
             get {
                 return ResourceManager.GetString("EmptyParticipantsList", resourceCulture);
             }
@@ -108,7 +117,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Ошибка.
         /// </summary>
-        internal static string Error {
+        public static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
             }
@@ -117,7 +126,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Отметить присутствие.
         /// </summary>
-        internal static string EventAttendButton {
+        public static string EventAttendButton {
             get {
                 return ResourceManager.GetString("EventAttendButton", resourceCulture);
             }
@@ -126,7 +135,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Уже зарегистрирован.
         /// </summary>
-        internal static string EventRegistrationAlreadyRegistered {
+        public static string EventRegistrationAlreadyRegistered {
             get {
                 return ResourceManager.GetString("EventRegistrationAlreadyRegistered", resourceCulture);
             }
@@ -135,7 +144,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Зарегистрироваться.
         /// </summary>
-        internal static string EventRegistrationButton {
+        public static string EventRegistrationButton {
             get {
                 return ResourceManager.GetString("EventRegistrationButton", resourceCulture);
             }
@@ -144,7 +153,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Ошибка, попробуйте снова.
         /// </summary>
-        internal static string EventRegistrationError {
+        public static string EventRegistrationError {
             get {
                 return ResourceManager.GetString("EventRegistrationError", resourceCulture);
             }
@@ -153,7 +162,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Успешная регистрация.
         /// </summary>
-        internal static string EventRegistrationSuccess {
+        public static string EventRegistrationSuccess {
             get {
                 return ResourceManager.GetString("EventRegistrationSuccess", resourceCulture);
             }
@@ -162,7 +171,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Мероприятия.
         /// </summary>
-        internal static string Events {
+        public static string Events {
             get {
                 return ResourceManager.GetString("Events", resourceCulture);
             }
@@ -171,7 +180,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Имя.
         /// </summary>
-        internal static string FirstName {
+        public static string FirstName {
             get {
                 return ResourceManager.GetString("FirstName", resourceCulture);
             }
@@ -180,7 +189,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Ошибка геолокации.
         /// </summary>
-        internal static string GeolocationError {
+        public static string GeolocationError {
             get {
                 return ResourceManager.GetString("GeolocationError", resourceCulture);
             }
@@ -189,7 +198,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Геолокация выключена.
         /// </summary>
-        internal static string GeolocationErrorDisabledGPS {
+        public static string GeolocationErrorDisabledGPS {
             get {
                 return ResourceManager.GetString("GeolocationErrorDisabledGPS", resourceCulture);
             }
@@ -198,7 +207,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Нет разрешений на геолокацию.
         /// </summary>
-        internal static string GeolocationErrorNoPermission {
+        public static string GeolocationErrorNoPermission {
             get {
                 return ResourceManager.GetString("GeolocationErrorNoPermission", resourceCulture);
             }
@@ -207,7 +216,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Геолокация не поддерживается устройством.
         /// </summary>
-        internal static string GeolocationErrorNotSupported {
+        public static string GeolocationErrorNotSupported {
             get {
                 return ResourceManager.GetString("GeolocationErrorNotSupported", resourceCulture);
             }
@@ -216,7 +225,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Не удалось получить координаты.
         /// </summary>
-        internal static string GeolocationErrorUnableToRetrieve {
+        public static string GeolocationErrorUnableToRetrieve {
             get {
                 return ResourceManager.GetString("GeolocationErrorUnableToRetrieve", resourceCulture);
             }
@@ -225,7 +234,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Неизвестная ошибка, попробуйте позже.
         /// </summary>
-        internal static string HttpError {
+        public static string HttpError {
             get {
                 return ResourceManager.GetString("HttpError", resourceCulture);
             }
@@ -234,7 +243,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Неверный запрос.
         /// </summary>
-        internal static string HttpErrorBadRequest {
+        public static string HttpErrorBadRequest {
             get {
                 return ResourceManager.GetString("HttpErrorBadRequest", resourceCulture);
             }
@@ -243,7 +252,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Ошибка сети.
         /// </summary>
-        internal static string HttpErrorNetwork {
+        public static string HttpErrorNetwork {
             get {
                 return ResourceManager.GetString("HttpErrorNetwork", resourceCulture);
             }
@@ -252,7 +261,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Сервер не доступен.
         /// </summary>
-        internal static string HttpErrorServerSleeping {
+        public static string HttpErrorServerSleeping {
             get {
                 return ResourceManager.GetString("HttpErrorServerSleeping", resourceCulture);
             }
@@ -261,7 +270,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Английский.
         /// </summary>
-        internal static string LanguageEnglish {
+        public static string LanguageEnglish {
             get {
                 return ResourceManager.GetString("LanguageEnglish", resourceCulture);
             }
@@ -270,7 +279,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Язык.
         /// </summary>
-        internal static string LanguagePicker {
+        public static string LanguagePicker {
             get {
                 return ResourceManager.GetString("LanguagePicker", resourceCulture);
             }
@@ -279,7 +288,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Русский.
         /// </summary>
-        internal static string LanguageRussian {
+        public static string LanguageRussian {
             get {
                 return ResourceManager.GetString("LanguageRussian", resourceCulture);
             }
@@ -288,7 +297,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Фамилия.
         /// </summary>
-        internal static string LastName {
+        public static string LastName {
             get {
                 return ResourceManager.GetString("LastName", resourceCulture);
             }
@@ -297,7 +306,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Войти.
         /// </summary>
-        internal static string LoginButton {
+        public static string LoginButton {
             get {
                 return ResourceManager.GetString("LoginButton", resourceCulture);
             }
@@ -306,7 +315,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Войти в аккаунт.
         /// </summary>
-        internal static string LoginPage {
+        public static string LoginPage {
             get {
                 return ResourceManager.GetString("LoginPage", resourceCulture);
             }
@@ -315,7 +324,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Войти в аккаунт.
         /// </summary>
-        internal static string LoginPageButton {
+        public static string LoginPageButton {
             get {
                 return ResourceManager.GetString("LoginPageButton", resourceCulture);
             }
@@ -324,7 +333,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Выйти.
         /// </summary>
-        internal static string Logout {
+        public static string Logout {
             get {
                 return ResourceManager.GetString("Logout", resourceCulture);
             }
@@ -333,7 +342,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Мой профиль.
         /// </summary>
-        internal static string MyProfile {
+        public static string MyProfile {
             get {
                 return ResourceManager.GetString("MyProfile", resourceCulture);
             }
@@ -342,7 +351,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Участники.
         /// </summary>
-        internal static string Participants {
+        public static string Participants {
             get {
                 return ResourceManager.GetString("Participants", resourceCulture);
             }
@@ -351,7 +360,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Участники.
         /// </summary>
-        internal static string ParticipantsTitle {
+        public static string ParticipantsTitle {
             get {
                 return ResourceManager.GetString("ParticipantsTitle", resourceCulture);
             }
@@ -360,7 +369,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Пароль.
         /// </summary>
-        internal static string Password {
+        public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
             }
@@ -369,7 +378,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Подтвердите пароль.
         /// </summary>
-        internal static string PasswordConfirm {
+        public static string PasswordConfirm {
             get {
                 return ResourceManager.GetString("PasswordConfirm", resourceCulture);
             }
@@ -378,16 +387,34 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Отчество (опционально).
         /// </summary>
-        internal static string Patronymic {
+        public static string Patronymic {
             get {
                 return ResourceManager.GetString("Patronymic", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Код обновляется автоматически.
+        /// </summary>
+        public static string QrCodeChangeAutomatic {
+            get {
+                return ResourceManager.GetString("QrCodeChangeAutomatic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Контроль входа.
+        /// </summary>
+        public static string QrGeneratorTitle {
+            get {
+                return ResourceManager.GetString("QrGeneratorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Сканирование отменено.
         /// </summary>
-        internal static string QrScanerCancel {
+        public static string QrScanerCancel {
             get {
                 return ResourceManager.GetString("QrScanerCancel", resourceCulture);
             }
@@ -396,7 +423,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Зарегистрироваться.
         /// </summary>
-        internal static string RegisterButton {
+        public static string RegisterButton {
             get {
                 return ResourceManager.GetString("RegisterButton", resourceCulture);
             }
@@ -405,7 +432,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Зарегистрированы.
         /// </summary>
-        internal static string Registered {
+        public static string Registered {
             get {
                 return ResourceManager.GetString("Registered", resourceCulture);
             }
@@ -414,7 +441,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Регистрация.
         /// </summary>
-        internal static string RegistrationPage {
+        public static string RegistrationPage {
             get {
                 return ResourceManager.GetString("RegistrationPage", resourceCulture);
             }
@@ -423,7 +450,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Регистрация.
         /// </summary>
-        internal static string RegistrationPageButton {
+        public static string RegistrationPageButton {
             get {
                 return ResourceManager.GetString("RegistrationPageButton", resourceCulture);
             }
@@ -432,7 +459,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Несовпадение паролей.
         /// </summary>
-        internal static string RegistrationPageErrorDifferentPasswords {
+        public static string RegistrationPageErrorDifferentPasswords {
             get {
                 return ResourceManager.GetString("RegistrationPageErrorDifferentPasswords", resourceCulture);
             }
@@ -441,7 +468,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Заполните все поля.
         /// </summary>
-        internal static string RegistrationPageErrorNotAllFields {
+        public static string RegistrationPageErrorNotAllFields {
             get {
                 return ResourceManager.GetString("RegistrationPageErrorNotAllFields", resourceCulture);
             }
@@ -450,25 +477,61 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Пароль меньше 6 символов.
         /// </summary>
-        internal static string RegistrationPageErrorShortPassword {
+        public static string RegistrationPageErrorShortPassword {
             get {
                 return ResourceManager.GetString("RegistrationPageErrorShortPassword", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Сканируйте для подтверждения.
+        /// </summary>
+        public static string ScanToCheckIn {
+            get {
+                return ResourceManager.GetString("ScanToCheckIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Регистрация закрыта.
+        /// </summary>
+        public static string SessionInactive {
+            get {
+                return ResourceManager.GetString("SessionInactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Настройки.
         /// </summary>
-        internal static string SettingsPage {
+        public static string SettingsPage {
             get {
                 return ResourceManager.GetString("SettingsPage", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Начать регистрацию.
+        /// </summary>
+        public static string StartRegistration {
+            get {
+                return ResourceManager.GetString("StartRegistration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Закончить регистрацию.
+        /// </summary>
+        public static string StopRegistration {
+            get {
+                return ResourceManager.GetString("StopRegistration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Успешно.
         /// </summary>
-        internal static string Success {
+        public static string Success {
             get {
                 return ResourceManager.GetString("Success", resourceCulture);
             }
@@ -477,7 +540,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Темная.
         /// </summary>
-        internal static string ThemeDark {
+        public static string ThemeDark {
             get {
                 return ResourceManager.GetString("ThemeDark", resourceCulture);
             }
@@ -486,7 +549,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Светлая.
         /// </summary>
-        internal static string ThemeLight {
+        public static string ThemeLight {
             get {
                 return ResourceManager.GetString("ThemeLight", resourceCulture);
             }
@@ -495,7 +558,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Тема.
         /// </summary>
-        internal static string ThemePicker {
+        public static string ThemePicker {
             get {
                 return ResourceManager.GetString("ThemePicker", resourceCulture);
             }
@@ -504,16 +567,25 @@ namespace SmartEvent.Mobile.Resources.Localization {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Системная.
         /// </summary>
-        internal static string ThemeSystem {
+        public static string ThemeSystem {
             get {
                 return ResourceManager.GetString("ThemeSystem", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Управление QR.
+        /// </summary>
+        public static string VerificationControl {
+            get {
+                return ResourceManager.GetString("VerificationControl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Ожидание....
         /// </summary>
-        internal static string WaitLabel {
+        public static string WaitLabel {
             get {
                 return ResourceManager.GetString("WaitLabel", resourceCulture);
             }

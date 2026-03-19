@@ -270,4 +270,28 @@
   <data name="Participants" xml:space="preserve">
     <value>Participants</value>
   </data>
+  <data name="QrGeneratorTitle" xml:space="preserve">
+    <value>Access control</value>
+  </data>
+  <data name="StartRegistration" xml:space="preserve">
+    <value>Start registration</value>
+  </data>
+  <data name="StopRegistration" xml:space="preserve">
+    <value>Stop registration</value>
+  </data>
+  <data name="ScanToCheckIn" xml:space="preserve">
+    <value>Scan to verify</value>
+  </data>
+  <data name="SessionInactive" xml:space="preserve">
+    <value>Registration is closed</value>
+  </data>
+  <data name="QrCodeChangeAutomatic" xml:space="preserve">
+    <value>Code refreshes automatically</value>
+  </data>
+  <data name="VerificationControl" xml:space="preserve">
+    <value>QR control</value>
+  </data>
+  <data name="AlreadyAttended" xml:space="preserve">
+    <value>Attended</value>
+  </data>
 </root>
