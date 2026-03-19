@@ -175,4 +175,16 @@ public partial class EventDetailsViewModel : ObservableObject
 
     }
 
+    [RelayCommand]
+    private async Task OpenParticipants()
+    {
+        var navParams = new Dictionary<string, object>
+        {
+            { "EventId", EventId }
+        };
+
+        await Shell.Current.GoToAsync(nameof(ParticipantsPage), navParams);
+    }
+
+
 }

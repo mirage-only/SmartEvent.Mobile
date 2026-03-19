@@ -61,7 +61,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Посещено.
+        ///   Ищет локализованную строку, похожую на Посетили.
         /// </summary>
         internal static string Attended {
             get {
@@ -93,6 +93,15 @@ namespace SmartEvent.Mobile.Resources.Localization {
         internal static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Список участников пуст.
+        /// </summary>
+        internal static string EmptyParticipantsList {
+            get {
+                return ResourceManager.GetString("EmptyParticipantsList", resourceCulture);
             }
         }
         
@@ -331,6 +340,24 @@ namespace SmartEvent.Mobile.Resources.Localization {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Участники.
+        /// </summary>
+        internal static string Participants {
+            get {
+                return ResourceManager.GetString("Participants", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Участники.
+        /// </summary>
+        internal static string ParticipantsTitle {
+            get {
+                return ResourceManager.GetString("ParticipantsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Пароль.
         /// </summary>
         internal static string Password {
@@ -376,7 +403,7 @@ namespace SmartEvent.Mobile.Resources.Localization {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Зарегистрировано.
+        ///   Ищет локализованную строку, похожую на Зарегистрированы.
         /// </summary>
         internal static string Registered {
             get {

@@ -20,6 +20,7 @@
                     <RowDefinition Height="Auto"/> <!--Map-->
                     <RowDefinition Height="Auto"/> <!--Reg Button-->
                     <RowDefinition Height="Auto"/> <!--Attend Button-->
+                    <RowDefinition Height="Auto"/> <!--Participants Button-->
                 </Grid.RowDefinitions>
             
                 <Border Grid.Row="0" StrokeShape="RoundRectangle 15" Padding="0">
@@ -64,15 +65,20 @@
                                     IsMyLocationButtonVisible="False"
                                     IsZoomButtonVisible="False"/>
                 </Border>
+
+                <Button Grid.Row="7" Text="{x:Static res:AppResources.Participants}"
+                        BackgroundColor="{Binding ButtonColor}"
+                        Command="{Binding OpenParticipantsCommand}"
+                        CornerRadius="10"/>
                 
-                <Button Grid.Row="7" Text="{Binding ButtonText}"
+                <Button Grid.Row="8" Text="{Binding ButtonText}"
                         BackgroundColor="{Binding ButtonColor}"
                         Command="{Binding RegisterCommand}"
                         IsVisible="{Binding IsRegistrationVisible}"
                         IsEnabled="{Binding IsRegistrationEnabled}"
                         CornerRadius="10"/>
 
-                <Button Grid.Row="8" 
+                <Button Grid.Row="9" 
                         Text="{Binding AttendButtonText}"
                         Command="{Binding OpenScannerCommand}" 
                         BackgroundColor="{Binding AttendButtonColor}"

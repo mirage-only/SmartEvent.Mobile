@@ -179,4 +179,29 @@
     </Style>
 
 
+    <!-- ========================= -->
+    <!--     PARTICIPANT STYLES    -->
+    <!-- ========================= -->
+
+    <Style x:Key="ParticipantCardStyle" TargetType="Border" BasedOn="{StaticResource ProfileCardStyle}">
+        <Setter Property="Padding" Value="20,15" />
+        <Setter Property="Margin" Value="0,0,0,4" />
+    </Style>
+
+    <Style x:Key="ParticipantNameStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+    <Style x:Key="EmptyListLabelStyle" TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="TextColor" Value="{DynamicResource SecondaryTextColor}" />
+        <Setter Property="Margin" Value="0,50" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+
 </ResourceDictionary>

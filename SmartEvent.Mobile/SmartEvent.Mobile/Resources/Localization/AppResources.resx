@@ -126,11 +126,11 @@
     <comment>AccountPage</comment>
   </data>
   <data name="Registered" xml:space="preserve">
-    <value>Зарегистрировано</value>
+    <value>Зарегистрированы</value>
     <comment>AccountPage</comment>
   </data>
   <data name="Attended" xml:space="preserve">
-    <value>Посещено</value>
+    <value>Посетили</value>
     <comment>AccountPage</comment>
   </data>
   <data name="Events" xml:space="preserve">
@@ -306,5 +306,14 @@
   </data>
   <data name="AttendSuccess" xml:space="preserve">
     <value>Присутствие подтверждено</value>
+  </data>
+  <data name="ParticipantsTitle" xml:space="preserve">
+    <value>Участники</value>
+  </data>
+  <data name="EmptyParticipantsList" xml:space="preserve">
+    <value>Список участников пуст</value>
+  </data>
+  <data name="Participants" xml:space="preserve">
+    <value>Участники</value>
   </data>
 </root>

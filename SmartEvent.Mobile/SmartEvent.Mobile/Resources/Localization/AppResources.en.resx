@@ -261,4 +261,13 @@
   <data name="AttendSuccess" xml:space="preserve">
     <value>Attend success</value>
   </data>
+  <data name="ParticipantsTitle" xml:space="preserve">
+    <value>Participants</value>
+  </data>
+  <data name="EmptyParticipantsList" xml:space="preserve">
+    <value>Empty participants list</value>
+  </data>
+  <data name="Participants" xml:space="preserve">
+    <value>Participants</value>
+  </data>
 </root>
