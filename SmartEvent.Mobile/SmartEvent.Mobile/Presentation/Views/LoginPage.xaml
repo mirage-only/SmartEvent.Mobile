@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="using:SmartEvent.Mobile.Presentation.ViewModels"
+    xmlns:res="clr-namespace:SmartEvent.Mobile.Resources.Localization"
+    x:DataType="viewModels:LoginViewModel"
+    x:Class="SmartEvent.Mobile.Presentation.Views.LoginPage"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    Shell.NavBarIsVisible="False">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+
+        <Label Text="{x:Static res:AppResources.LoginPage}" 
+               Style="{StaticResource PageTitleLabelStyle}" />
+
+        <!-- Email -->
+        <Border Style="{StaticResource ThemedEntryContainer}">
+            <Entry Style="{StaticResource ThemedEntry}"
+                   Placeholder="{x:Static res:AppResources.Email}"
+                   Text="{Binding Email}"
+                   Keyboard="Email" />
+        </Border>
+
+        <!-- Password -->
+        <Border Style="{StaticResource ThemedEntryContainer}">
+            <Entry Style="{StaticResource ThemedEntry}"
+                   Placeholder="{x:Static res:AppResources.Password}"
+                   Text="{Binding Password}"
+                   IsPassword="True" />
+        </Border>
+
+        <!-- Login button -->
+        <Button Text="{x:Static res:AppResources.LoginButton}"
+                Command="{Binding LoginCommand}"
+                BackgroundColor="{DynamicResource SuccessButtonBackground}"
+                TextColor="{DynamicResource SuccessButtonTextColor}"
+                CornerRadius="8"
+                HeightRequest="50" />
+
+        <!-- Register button -->
+        <Button Text="{x:Static res:AppResources.RegistrationPageButton}"
+                Command="{Binding GoToRegisterCommand}"
+                BackgroundColor="{DynamicResource PrimaryButtonBackground}"
+                TextColor="{DynamicResource PrimaryButtonTextColor}"
+                CornerRadius="8"
+                HeightRequest="50" />
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartEvent.Mobile.Presentation.Views.AddEventPage"
+             xmlns:vm="clr-namespace:SmartEvent.Mobile.Presentation.ViewModels"
+             xmlns:maui="clr-namespace:Mapsui.UI.Maui;assembly=Mapsui.UI.Maui"
+             x:DataType="vm:AddEventViewModel"
+             Title="NewEvent">
+    <Grid>
+        <ScrollView>
+            <Grid Padding="20" RowSpacing="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/> <!--Name Entry-->
+                    <RowDefinition Height="Auto"/> <!--Description Entry-->
+                    <RowDefinition Height="Auto"/> <!--Start time label-->
+                    <RowDefinition Height="Auto"/> <!--Start time entry-->
+                    <RowDefinition Height="Auto"/> <!--Location entry field-->
+                    <RowDefinition Height="Auto"/> <!--Room entry-->
+                    <RowDefinition Height="Auto"/> <!--Qr Expiration Time Entry-->
+                    <RowDefinition Height="Auto"/> <!--Image url Entry-->
+                    <RowDefinition Height="Auto"/> <!--Add button-->
+                </Grid.RowDefinitions>
+                
+                <Border Grid.Row="0" Style="{StaticResource ThemedEntryContainer}">
+                    <Entry Style="{StaticResource ThemedEntry}"
+                           Placeholder="Название мероприятия"
+                           Text="{Binding EventName}"/>
+                </Border>
+                
+                <Border Grid.Row="1" Style="{StaticResource ThemedEntryContainer}">
+                    <Entry Style="{StaticResource ThemedEntry}"
+                           Placeholder="Описание мероприятия"
+                           Text="{Binding EventDescription}"/>
+                </Border>
+                
+                <Label Grid.Row="2" Text="Дата и время начала"/>
+                
+                <Grid Grid.Row="3" ColumnDefinitions="*, *" ColumnSpacing="10">
+                    <Border Grid.Column="0" Style="{StaticResource ThemedEntryContainer}">
+                        <DatePicker x:Name="EventDatePicker"
+                                    Date="{Binding EventStartDate}"
+                                    Format="dd.MM.yyyy"
+                                    VerticalOptions="Center"
+                                    MinimumDate="{Binding EventStartDate}"/>
+                    </Border>
+                    <Border Grid.Column="1" Style="{StaticResource ThemedEntryContainer}">
+                        <TimePicker x:Name="EventTimePicker"
+                                    Time="{Binding EventStartTime}"
+                                    Format="HH:mm"/>
+                    </Border>
+                </Grid>
+                
+                <Grid Grid.Row="4" ColumnDefinitions="2*,*" ColumnSpacing="10">
+                    <Border Grid.Column="0" Style="{StaticResource ThemedEntryContainer}">
+                        <Entry Style="{StaticResource ThemedEntry}"
+                               Placeholder="Адрес проведения мероприятия"
+                               Text="{Binding EventLocationString}"/>
+                    </Border>
+                    <Button Grid.Column="1" 
+                            Text="Проверить адрес"
+                            Command="{Binding ConfirmAddressCommand}"
+                            IsEnabled="{Binding IsCheckAddressEnabled}"/>
+                </Grid>
+
+                
+                <Border Grid.Row="5" Style="{StaticResource ThemedEntryContainer}">
+                    <Entry Style="{StaticResource ThemedEntry}"
+                           Placeholder="Кабинет/аудитория (если есть)"
+                           Text="{Binding EventRoom}"/>
+                </Border>
+                
+                <Border Grid.Row="6" Style="{StaticResource ThemedEntryContainer}">
+                    <Entry Style="{StaticResource ThemedEntry}"
+                           Placeholder="Время истечения QR (секунды)"
+                           Keyboard="Numeric"
+                           Text="{Binding EventQrExpirationTime}"/>
+                </Border>
+                
+                <Border Grid.Row="7" Style="{StaticResource ThemedEntryContainer}">
+                    <Entry Style="{StaticResource ThemedEntry}"
+                           Placeholder="URL изображения (если есть)"
+                           Text="{Binding EventImageUrl}"/>
+                </Border>
+                
+                <Button Grid.Row="8" Text="{Binding ButtonText}"
+                        BackgroundColor="{Binding ButtonColor}"
+                        Command="{Binding AddEventCommand}"
+                        IsVisible="{Binding IsAddingVisible}"
+                        IsEnabled="{Binding IsAddingEnabled}"
+                        CornerRadius="10"/>
+            </Grid>
+        </ScrollView>
+        
+        <BoxView Color="{AppThemeBinding Light=White, Dark=Black}"
+                 Opacity="0.6"
+                 IsVisible="{Binding IsBusy}"/>
+        
+        <ActivityIndicator
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Color="{StaticResource Primary}"/>
+    </Grid>
+</ContentPage>

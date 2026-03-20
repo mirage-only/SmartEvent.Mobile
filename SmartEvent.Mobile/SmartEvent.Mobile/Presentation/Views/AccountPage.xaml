@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:SmartEvent.Mobile.Presentation.Components"
+    xmlns:res="clr-namespace:SmartEvent.Mobile.Resources.Localization"
+    xmlns:viewModels="using:SmartEvent.Mobile.Presentation.ViewModels"
+    xmlns:models="using:SmartEvent.Mobile.Core.DTOs.EventDTOs.Responses"
+    x:DataType="viewModels:AccountViewModel"
+    x:Class="SmartEvent.Mobile.Presentation.Views.AccountPage"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    Title="Profile">
+
+    <Shell.TitleView>
+        <Grid HorizontalOptions="FillAndExpand"
+              ColumnDefinitions="Auto,*,Auto"
+              Padding="12,0">
+
+            <Label Text="{x:Static res:AppResources.MyProfile}"
+                   Style="{StaticResource PageTitleLabelStyle}" />
+
+            <Grid />
+
+            <Button Text="{x:Static res:AppResources.Logout}"
+                    Grid.Column="2"
+                    Style="{StaticResource LogoutButtonStyle}"
+                    Command="{Binding LogoutCommand}" />
+
+        </Grid>
+    </Shell.TitleView>
+
+
+    <Grid RowDefinitions="Auto,*" Padding="20,10">
+
+        <VerticalStackLayout Spacing="1">
+
+            <!-- Профиль -->
+            <Border Style="{StaticResource ProfileCardStyle}">
+                <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+
+                    <Label Text="{Binding FirstName}"
+                           FontSize="26"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"
+                           TextColor="{DynamicResource PrimaryColor}" />
+
+                    <Label Text="{Binding Email}"
+                           FontSize="15"
+                           HorizontalTextAlignment="Center"
+                           TextColor="{DynamicResource SecondaryTextColor}" />
+
+                </VerticalStackLayout>
+            </Border>
+
+
+            <!-- Табы -->
+            <Grid ColumnDefinitions="*,*" Margin="0">
+
+                <!-- Registered -->
+                <Grid Grid.Column="0" Style="{StaticResource TabContainerStyle}">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ShowRegisteredCommand}" />
+                    </Grid.GestureRecognizers>
+
+                    <Grid.Triggers>
+                        <DataTrigger TargetType="Grid"
+                                     Binding="{Binding Current}"
+                                     Value="Registered">
+                            <Setter Property="BackgroundColor" Value="{DynamicResource TabSelectedBackground}" />
+                        </DataTrigger>
+                    </Grid.Triggers>
+
+                    <Label Text="{x:Static res:AppResources.Registered}"
+                           Style="{StaticResource TabLabelStyle}" />
+                </Grid>
+
+                <!-- Visited -->
+                <Grid Grid.Column="1" Style="{StaticResource TabContainerStyle}">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ShowVisitedCommand}" />
+                    </Grid.GestureRecognizers>
+
+                    <Grid.Triggers>
+                        <DataTrigger TargetType="Grid"
+                                     Binding="{Binding Current}"
+                                     Value="Visited">
+                            <Setter Property="BackgroundColor" Value="{DynamicResource TabSelectedBackground}" />
+                        </DataTrigger>
+                    </Grid.Triggers>
+
+                    <Label Text="{x:Static res:AppResources.Attended}"
+                           Style="{StaticResource TabLabelStyle}" />
+                </Grid>
+
+            </Grid>
+
+        </VerticalStackLayout>
+
+
+        <!-- Список событий -->
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding CurrentEvents}"
+                        SelectionMode="None">
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:EventLightDto">
+                    <controls:EventCard />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="SmartEvent.Mobile.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:SmartEvent.Mobile"
+    xmlns:views="clr-namespace:SmartEvent.Mobile.Presentation.Views"
+    xmlns:res="clr-namespace:SmartEvent.Mobile.Resources.Localization"
+    Title="SmartEvent.Mobile">
+
+    <TabBar>
+
+    <ShellContent
+        Title="{x:Static res:AppResources.Events}"
+        Icon="events.png"
+        Route="events"
+        ContentTemplate="{DataTemplate views:EventsPage}" />
+
+    <ShellContent
+        Title="{x:Static res:AppResources.MyProfile}"
+        Icon="account.png"
+        Route="account"
+        ContentTemplate="{DataTemplate views:AccountPage}" />
+
+    <ShellContent
+        Title="{x:Static res:AppResources.SettingsPage}"
+        Icon="settings.png"
+        Route="settings"
+        ContentTemplate="{DataTemplate views:SettingsPage}" />
+
+</TabBar>
+
+
+</Shell>

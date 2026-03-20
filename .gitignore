@@ -7,6 +7,31 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/Dotnet.gitignore
 
+# User-specific project files
+*.csproj.user
+*.vbproj.user
+*.fsproj.user
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio
+.vs/
+
+# MAUI
+.maui/
+
+# Android build artifacts
+*.apk
+*.aab
+*.keystore
+*.jks
+
+# JetBrains Rider
+.idea/
+*.DotSettings.user
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

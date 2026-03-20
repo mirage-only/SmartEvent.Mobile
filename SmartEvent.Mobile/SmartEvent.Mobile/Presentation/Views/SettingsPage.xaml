@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:res="clr-namespace:SmartEvent.Mobile.Resources.Localization"
+    xmlns:vm="clr-namespace:SmartEvent.Mobile.Presentation.ViewModels"
+    x:DataType="vm:SettingsViewModel"
+    x:Class="SmartEvent.Mobile.Presentation.Views.SettingsPage"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    Title="Settings">
+
+    <Shell.TitleView>
+        <Label Text="{x:Static res:AppResources.SettingsPage}"
+               Style="{StaticResource PageTitleLabelStyle}" />
+    </Shell.TitleView>
+
+    <VerticalStackLayout Padding="20" Spacing="25">
+
+        <!-- Theme -->
+        <Label Text="{x:Static res:AppResources.ThemePicker}"
+               Style="{StaticResource SettingsSectionHeaderStyle}" />
+
+        <Border Style="{StaticResource ThemedPickerContainer}">
+            <Picker Style="{StaticResource ThemedPicker}"
+                    ItemsSource="{Binding Themes}"
+                    SelectedItem="{Binding SelectedTheme}"
+                    ItemDisplayBinding="{Binding Title}"
+                    Title="{x:Static res:AppResources.ThemePicker}" />
+        </Border>
+
+        <!-- Language -->
+        <Label Text="{x:Static res:AppResources.LanguagePicker}"
+               Style="{StaticResource SettingsSectionHeaderStyle}" />
+
+        <Border Style="{StaticResource ThemedPickerContainer}">
+            <Picker Style="{StaticResource ThemedPicker}"
+                    ItemsSource="{Binding Languages}"
+                    SelectedItem="{Binding SelectedLanguage}"
+                    ItemDisplayBinding="{Binding Title}"
+                    Title="{x:Static res:AppResources.LanguagePicker}" />
+        </Border>
+
+    </VerticalStackLayout>
+
+</ContentPage>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:SmartEvent.Mobile.Presentation.ViewModels"
+             xmlns:res="clr-namespace:SmartEvent.Mobile.Resources.Localization"
+             x:Class="SmartEvent.Mobile.Presentation.Views.EventQrCodePage"
+             x:DataType="vm:EventQrGeneratorViewModel"
+             BackgroundColor="{DynamicResource BackgroundColor}">
+
+    <Shell.TitleView>
+        <Label Text="{x:Static res:AppResources.QrGeneratorTitle}"
+               Style="{StaticResource PageTitleLabelStyle}"
+               Margin="15,0" />
+    </Shell.TitleView>
+
+    <Grid RowDefinitions="*, Auto" Padding="20">
+
+        <VerticalStackLayout Grid.Row="0" VerticalOptions="Center" Spacing="25">
+
+            <Label Text="{x:Static res:AppResources.ScanToCheckIn}"
+                   Style="{StaticResource QrInstructionLabelStyle}"
+                   IsVisible="False">
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label" Binding="{Binding IsActive}" Value="True">
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+
+            <Border Style="{StaticResource QrCodeContainerStyle}">
+                <Grid>
+                    <Label Text="{x:Static res:AppResources.SessionInactive}"
+                           Style="{StaticResource QrStatusLabelStyle}"
+                           IsVisible="True">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding IsActive}" Value="True">
+                                <Setter Property="IsVisible" Value="False" />
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+
+                    <Image Source="{Binding QrImageSource}"
+                           Aspect="AspectFit"
+                           IsVisible="{Binding IsActive}" />
+
+                    <ActivityIndicator IsRunning="{Binding IsBusy}"
+                                       IsVisible="{Binding IsBusy}"
+                                       Color="{DynamicResource PrimaryColor}"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center" />
+                </Grid>
+            </Border>
+
+            <Label Text="{x:Static res:AppResources.QrCodeChangeAutomatic}"
+                   FontSize="12"
+                   TextColor="{DynamicResource SecondaryTextColor}"
+                   HorizontalOptions="Center"
+                   IsVisible="{Binding IsActive}" />
+        </VerticalStackLayout>
+
+        <Button Grid.Row="1"
+                Text="{Binding ButtonText}"
+                Command="{Binding ToggleSessionCommand}"
+                BackgroundColor="{Binding ButtonColor}"
+                TextColor="White"
+                HeightRequest="56"
+                CornerRadius="12"
+                FontAttributes="Bold"
+                FontSize="16"
+                Margin="10,20">
+            <Button.Triggers>
+                <DataTrigger TargetType="Button" Binding="{Binding IsBusy}" Value="True">
+                    <Setter Property="IsEnabled" Value="False" />
+                    <Setter Property="Opacity" Value="0.7" />
+                </DataTrigger>
+            </Button.Triggers>
+        </Button>
+
+    </Grid>
+</ContentPage>

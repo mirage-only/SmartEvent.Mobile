@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MyProfile" xml:space="preserve">
+    <value>Мой профиль</value>
+    <comment>AccountPage</comment>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Выйти</value>
+    <comment>AccountPage</comment>
+  </data>
+  <data name="Registered" xml:space="preserve">
+    <value>Зарегистрированы</value>
+    <comment>AccountPage</comment>
+  </data>
+  <data name="Attended" xml:space="preserve">
+    <value>Посетили</value>
+    <comment>AccountPage</comment>
+  </data>
+  <data name="Events" xml:space="preserve">
+    <value>Мероприятия</value>
+    <comment>EventsPage</comment>
+  </data>
+  <data name="LoginPage" xml:space="preserve">
+    <value>Войти в аккаунт</value>
+    <comment>LoginPage</comment>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Почта</value>
+    <comment>LoginPage, RegisterPage</comment>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+    <comment>LoginPage, RegisterPage</comment>
+  </data>
+  <data name="LoginButton" xml:space="preserve">
+    <value>Войти</value>
+    <comment>LoginPage</comment>
+  </data>
+  <data name="RegistrationPageButton" xml:space="preserve">
+    <value>Регистрация</value>
+    <comment>LoginPage</comment>
+  </data>
+  <data name="RegistrationPage" xml:space="preserve">
+    <value>Регистрация</value>
+    <comment>RegisterPage</comment>
+  </data>
+  <data name="PasswordConfirm" xml:space="preserve">
+    <value>Подтвердите пароль</value>
+    <comment>RegisterPage</comment>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Имя</value>
+    <comment>RegisterPage</comment>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Фамилия</value>
+    <comment>RegisterPage</comment>
+  </data>
+  <data name="Patronymic" xml:space="preserve">
+    <value>Отчество (опционально)</value>
+    <comment>RegistrationPage</comment>
+  </data>
+  <data name="RegisterButton" xml:space="preserve">
+    <value>Зарегистрироваться</value>
+    <comment>RegisterPage</comment>
+  </data>
+  <data name="LoginPageButton" xml:space="preserve">
+    <value>Войти в аккаунт</value>
+    <comment>RegisterPage</comment>
+  </data>
+  <data name="SettingsPage" xml:space="preserve">
+    <value>Настройки</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="ThemePicker" xml:space="preserve">
+    <value>Тема</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="LanguagePicker" xml:space="preserve">
+    <value>Язык</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Темная</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Светлая</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="ThemeSystem" xml:space="preserve">
+    <value>Системная</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="LanguageRussian" xml:space="preserve">
+    <value>Русский</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="LanguageEnglish" xml:space="preserve">
+    <value>Английский</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="GeolocationErrorNotSupported" xml:space="preserve">
+    <value>Геолокация не поддерживается устройством</value>
+    <comment>Geolocation</comment>
+  </data>
+  <data name="GeolocationErrorDisabledGPS" xml:space="preserve">
+    <value>Геолокация выключена</value>
+    <comment>Geolocation</comment>
+  </data>
+  <data name="GeolocationErrorNoPermission" xml:space="preserve">
+    <value>Нет разрешений на геолокацию</value>
+    <comment>Geolocation</comment>
+  </data>
+  <data name="GeolocationErrorUnableToRetrieve" xml:space="preserve">
+    <value>Не удалось получить координаты</value>
+    <comment>Geolocation</comment>
+  </data>
+  <data name="GeolocationError" xml:space="preserve">
+    <value>Ошибка геолокации</value>
+    <comment>Geolocation</comment>
+  </data>
+  <data name="QrScanerCancel" xml:space="preserve">
+    <value>Сканирование отменено</value>
+    <comment>QR</comment>
+  </data>
+  <data name="HttpErrorNetwork" xml:space="preserve">
+    <value>Ошибка сети</value>
+    <comment>Http</comment>
+  </data>
+  <data name="HttpErrorServerSleeping" xml:space="preserve">
+    <value>Сервер не доступен</value>
+    <comment>Http</comment>
+  </data>
+  <data name="HttpErrorBadRequest" xml:space="preserve">
+    <value>Неверный запрос</value>
+    <comment>Http</comment>
+  </data>
+  <data name="HttpError" xml:space="preserve">
+    <value>Неизвестная ошибка, попробуйте позже</value>
+    <comment>Http</comment>
+  </data>
+  <data name="EventRegistrationButton" xml:space="preserve">
+    <value>Зарегистрироваться</value>
+    <comment>EventDetailsPage</comment>
+  </data>
+  <data name="EventRegistrationAlreadyRegistered" xml:space="preserve">
+    <value>Уже зарегистрирован</value>
+    <comment>EventDetailsPage</comment>
+  </data>
+  <data name="EventRegistrationSuccess" xml:space="preserve">
+    <value>Успешная регистрация</value>
+    <comment>EventDetailsPage</comment>
+  </data>
+  <data name="EventRegistrationError" xml:space="preserve">
+    <value>Ошибка, попробуйте снова</value>
+    <comment>EventDetailsPage</comment>
+  </data>
+  <data name="WaitLabel" xml:space="preserve">
+    <value>Ожидание...</value>
+    <comment>EventDetailsPage</comment>
+  </data>
+  <data name="RegistrationPageErrorDifferentPasswords" xml:space="preserve">
+    <value>Несовпадение паролей</value>
+    <comment>RegistrationPage</comment>
+  </data>
+  <data name="RegistrationPageErrorNotAllFields" xml:space="preserve">
+    <value>Заполните все поля</value>
+    <comment>RegistrationPage</comment>
+  </data>
+  <data name="RegistrationPageErrorShortPassword" xml:space="preserve">
+    <value>Пароль меньше 6 символов</value>
+    <comment>RegistrationPage</comment>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Ошибка</value>
+    <comment>RegistrationPage</comment>
+  </data>
+  <data name="EventAttendButton" xml:space="preserve">
+    <value>Отметить присутствие</value>
+    <comment>EventDetailsPage</comment>
+  </data>
+  <data name="CameraErrorNoPermission" xml:space="preserve">
+    <value>Нет разрешений на камеру</value>
+    <comment>EventDetailsPage</comment>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Успешно</value>
+  </data>
+  <data name="AttendSuccess" xml:space="preserve">
+    <value>Присутствие подтверждено</value>
+  </data>
+  <data name="ParticipantsTitle" xml:space="preserve">
+    <value>Участники</value>
+  </data>
+  <data name="EmptyParticipantsList" xml:space="preserve">
+    <value>Список участников пуст</value>
+  </data>
+  <data name="Participants" xml:space="preserve">
+    <value>Участники</value>
+  </data>
+  <data name="QrGeneratorTitle" xml:space="preserve">
+    <value>Контроль входа</value>
+  </data>
+  <data name="StartRegistration" xml:space="preserve">
+    <value>Начать регистрацию</value>
+  </data>
+  <data name="StopRegistration" xml:space="preserve">
+    <value>Закончить регистрацию</value>
+  </data>
+  <data name="ScanToCheckIn" xml:space="preserve">
+    <value>Сканируйте для подтверждения</value>
+  </data>
+  <data name="SessionInactive" xml:space="preserve">
+    <value>Регистрация закрыта</value>
+  </data>
+  <data name="QrCodeChangeAutomatic" xml:space="preserve">
+    <value>Код обновляется автоматически</value>
+  </data>
+  <data name="VerificationControl" xml:space="preserve">
+    <value>Управление QR</value>
+  </data>
+  <data name="AlreadyAttended" xml:space="preserve">
+    <value>Посещено</value>
+  </data>
+</root>
