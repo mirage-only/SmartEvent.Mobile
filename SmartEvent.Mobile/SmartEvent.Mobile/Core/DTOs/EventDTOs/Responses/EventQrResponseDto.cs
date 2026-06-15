@@ -2,7 +2,7 @@
 {
     public class EventQrResponseDto
     {
-        public string Code { get; set; } = string.Empty;
-        public int Interval { get; set; }
+        public string TokenValue { get; set; } = string.Empty;
+        public DateTime ExpiresAt { get; set; }
     }
 }

@@ -67,11 +67,15 @@ namespace SmartEvent.Mobile.Presentation.ViewModels
                     var result = await _qrGeneratorService.StartSessionAsync(EventId);
                     if (result.IsSuccess && result.Data != null)
                     {
-                        QrCodeString = result.Data.Code;
-                        _currentInterval = result.Data.Interval;
+                        QrCodeString = result.Data.TokenValue;
+                        var interval = (result.Data.ExpiresAt - DateTime.UtcNow).TotalSeconds;
+                        if (interval < 1)
+                            interval = 1;
+
+                        _currentInterval = (int)interval; 
                         IsActive = true;
 
-                        GenerateQrImage(result.Data.Code);
+                        GenerateQrImage(result.Data.TokenValue);
 
                         ButtonText = AppResources.StopRegistration;
                         ButtonColor = "#FF0000";
@@ -110,9 +114,13 @@ namespace SmartEvent.Mobile.Presentation.ViewModels
                         var result = await _qrGeneratorService.GetCurrentCodeAsync(EventId);
                         if (result.IsSuccess && result.Data != null)
                         {
-                            QrCodeString = result.Data.Code;
-                            _currentInterval = result.Data.Interval;
-                                GenerateQrImage(result.Data.Code);
+                            QrCodeString = result.Data.TokenValue;
+                            var interval = (result.Data.ExpiresAt - DateTime.UtcNow).TotalSeconds;
+                            if (interval < 1)
+                                interval = 1;
+
+                            _currentInterval = (int)interval;
+                            GenerateQrImage(result.Data.TokenValue);
                         }
                     }
                 }
